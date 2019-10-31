@@ -1,0 +1,3 @@
+while true or (false or a > 1 and b < 3) and a > b or not(1 > 3) or c < 1 do
+    a := 2 + b - (3 * (1 - a * (5 - d))) * 2 - c * 1
+od

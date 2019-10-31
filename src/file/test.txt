@@ -1,17 +1,42 @@
-n := input;
-steps := 0;
-while n > 1 do
-rem := n;
-quot := 0;
-while rem > 1 do
-rem := rem - 2;
-quot := quot + 1
-od;
-if rem = 0 then
-n := quot
-else
-n := 3*n+1
-fi;
-steps := steps + 1
-od;
-output := steps
+while true and false do
+ if (3 < 1) then
+    a := (3 + 4) * 2
+ else
+    a := 2-1
+ fi;
+ if ((((3 > 1)))) then
+     a := 1 + 4
+  else
+     a := 1
+  fi;
+  if (3 = 1) then
+       a := b
+    else
+       a := c
+  fi;
+  if (3 <= 1) then
+         a := b
+      else
+         a := c
+  fi;
+  if (3 >= 1) then
+           a := b
+        else
+           a := c
+  fi;
+  if not(false) then
+             a := b
+          else
+             a := c
+   fi;
+   if (true) then
+              a := b
+           else
+              a := c
+     fi;
+     if (false) then
+                   a := b
+                else
+                   a := c
+          fi
+od

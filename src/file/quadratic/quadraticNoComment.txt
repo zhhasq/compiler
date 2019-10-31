@@ -1,0 +1,68 @@
+ 
+discriminant := b*b - 4*a*c; 
+if discriminant < 0 then 
+    
+    roots := 0 
+else 
+    
+    if discriminant = 0 then 
+        
+        roots := 1; 
+        
+        sqrt_discriminant := 0 
+    else 
+        
+        roots := 2; 
+        
+        n := 50; 
+        last_guess := 0; 
+        guess := 1; 
+        while n > 0 and not (last_guess = guess) do 
+            last_guess := guess; 
+            
+            
+            quotient := 0; 
+            remainder := discriminant; 
+            while remainder >= guess do 
+                quotient := quotient + 1; 
+                remainder := remainder - guess 
+            od; 
+            
+            remainder := guess + quotient; 
+            quotient := 0; 
+            while remainder >= 2 do 
+                quotient := quotient + 1; 
+                remainder := remainder - 2 
+            od; 
+            
+            guess := quotient 
+        od; 
+        
+        sqrt_discriminant := guess 
+    fi; 
+    
+    denominator := 2 * a; 
+    numerator1 := (0 - b) - sqrt_discriminant; 
+    
+    r1 := 0; 
+    while numerator1 >= denominator do 
+        r1 := r1 + 1; 
+        numerator1 := numerator1 - denominator 
+    od; 
+    while numerator1 <= 0 - denominator do 
+        r1 := r1 - 1; 
+        numerator1 := numerator1 + denominator 
+    od; 
+    if roots > 1 then 
+        numerator2 := (0 - b) + sqrt_discriminant; 
+        r2 := 0; 
+        while numerator2 >= denominator do 
+            r2 := r2 + 1; 
+            numerator2 := numerator2 - denominator 
+        od; 
+        while numerator2 <= 0 - denominator do 
+            r2 := r2 - 1; 
+            numerator2 := numerator2 + denominator 
+        od 
+    else skip fi 
+fi 

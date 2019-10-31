@@ -1,0 +1,14 @@
+ 
+if (a <= 0) then 
+    b := 0 
+   else 
+    skip 
+fi; 
+tmp1 := 0; 
+b := 1; 
+while (a > 1) do 
+  sum := tmp1 + b; 
+  tmp1 := b; 
+  b := sum; 
+  a := a - 1 
+od 

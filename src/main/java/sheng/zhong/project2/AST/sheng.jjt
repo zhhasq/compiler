@@ -1,0 +1,235 @@
+options {
+  LOOKAHEAD = 10;
+  MULTI=true;
+}
+
+
+PARSER_BEGIN(Sheng)
+
+public class Sheng {
+
+  public static void main(String args[]) throws ParseException {
+    Sheng parser = new Sheng(System.in);
+    SimpleNode root = parser.Start();
+    root.dump("");
+  }
+
+}
+
+PARSER_END(Sheng)
+SKIP :
+{
+  " "
+| "\t"
+| "\n"
+| "\r"
+}
+
+TOKEN :
+{
+
+	<ASSIGN: ":=">
+|   <LINEEND: ";">
+|	<IF: "if">
+|	<THEN: "then">
+|	<ELSE: "else">
+|	<FI: "fi">
+|	<WHILE: "while">
+|	<DO: "do">
+|	<OD: "od">
+| 	<SKIP2: "skip">
+}
+
+
+TOKEN : /* LITERALS */
+{
+	< INTEGER: ("0" | ["1"-"9"] (["0"-"9"])*) >
+|	< BLITERALS: ("true" | "false")>
+}
+
+TOKEN : 
+{
+   < ROPERATOR: ("=" | "<" | ">" | "<=" | ">=")>
+|   < BNOT: "not">
+|	<AND: "and">
+| 	<OR: "or">
+}
+
+
+TOKEN : /* IDENTIFIERS */
+{
+  < IDENTIFIERS: <LETTER> (<LETTER>|<DIGIT>|"'"|"_")* >
+|
+  < #LETTER: ["a"-"z","A"-"Z"] >
+|
+  < #DIGIT: ["0"-"9"] >
+}
+
+SimpleNode Start() #START:
+{}
+{
+	Commands()<EOF>
+	{return jjtThis;}
+}
+
+void Commands() :
+{}
+{
+	OneCommand() (<LINEEND> OneCommand())*
+}
+
+
+
+void OneCommand () #void:
+{}
+{
+	Assignment()
+|	
+	(
+		<IF> BExp() <THEN> Commands() <ELSE> Commands() <FI>
+	)
+	#If
+|	
+	(
+		<WHILE> BExp() <DO> Commands() <OD>
+	) #While
+|	
+	(
+	    <SKIP2>
+	) #Skip
+
+}
+
+void Assignment() #Assign :
+{}
+{
+	Var() <ASSIGN> AExp()
+}
+
+void AExp() #void:
+{String s = "";}
+{
+	(
+		Term() (s = AExp2())?  {jjtThis.setSign(s);}
+	)#Add(>1)
+}
+
+
+String AExp2() #void :
+{String s = "";}
+{
+	(
+		"+" Term() (s= AExp2())? {jjtThis.setSign(s);}
+	) #Add(>1)
+	{return "+";}
+|
+	(
+		"-" Term() (s = AExp2())? {jjtThis.setSign(s);}
+	) #Add(>1)
+	{return "-";}
+}
+
+void Term() #void:
+{}
+{
+	(
+		Factor() (Term2())?
+	) #Mult(>1)
+}
+
+void Term2() #void:
+{}
+{
+	(
+		"*" Factor() (Term2())?
+	)#Mult(>1)
+}
+
+void Factor() #void:
+{Token i;
+
+}
+{
+	Var()
+	
+|	
+	(
+		i = <INTEGER> {jjtThis.setName(i.image);}
+
+	)#Int
+	
+|
+    (
+        "(" AExp() ")"
+    ) #AddPar
+
+}
+
+
+/** For Boolean expressions */
+
+void BExp() #void:
+{}
+{
+	(
+		BTerm() (BExp2())?	
+	)#Or(>1)
+}
+
+void BExp2() #void:
+{}
+{
+	(
+		<OR> BTerm() (BExp2())?
+	) #Or(>1)
+	
+}
+
+void BTerm() #void:
+{}
+{
+	(
+		BFactor() (BTerm2())?
+	)# And(>1)
+}
+
+void BTerm2() #void:
+{}
+{
+	(
+		<AND> BFactor() (BTerm2())?
+	)# And(>1)
+}
+
+void BFactor() #BFactor:
+{Token bool;
+ Token operator;
+}
+{
+	(
+		bool = <BLITERALS> {jjtThis.setName(bool.image);}
+	)#BLiteral
+
+|	
+	(
+		<BNOT> "(" BExp() ")"	
+	) #BNot
+	
+|	
+	(
+		AExp() operator = <ROPERATOR> AExp() {jjtThis.setOperator(operator.image);}
+	)#Relation(>1)
+	
+|
+    (
+        "(" BExp() ")"
+    )#BoolPar
+}
+
+void Var() #void :
+{Token id;}
+{
+	(
+		id = <IDENTIFIERS> {jjtThis.setName(id.image);}
+	)#Id 
+}

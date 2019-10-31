@@ -1,0 +1,30 @@
+
+if (a > b) then
+    if (c < a) then
+        if (b >= a) then
+            c := 2 * a
+        else
+            c := 2 * b
+        fi
+    else
+        d := 30;
+        if (d > 10) then
+            a := a + b + c
+        else
+            a := a - b - c
+        fi
+    fi
+else
+    if (c = a) then
+        c := a + b
+    else
+        if (b >= a) then
+            c := a + 2 * b
+        else
+            c := a - 2 * b
+        fi
+    fi
+fi;
+a := b - a;
+c := a + b;
+b := a + b + c
