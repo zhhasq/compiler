@@ -10,6 +10,7 @@ class SimpleNode implements Node {
   protected int id;
   protected Object value;
   protected Sheng parser;
+  protected int label;
 
   public SimpleNode(int i) {
     id = i;
@@ -89,6 +90,15 @@ class SimpleNode implements Node {
     this.children = null;
 
   }
+
+  @Override
+  public int getLabel() {
+    return this.label;
+  }
+  public void setLabel (int label) {
+    this.label = label;
+  }
+
 }
 
 /* JavaCC - OriginalChecksum=b25f114043acbef0b919c12e1e5a96a2 (do not edit this line) */

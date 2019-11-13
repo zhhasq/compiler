@@ -4,16 +4,12 @@ package sheng.zhong.project2.AST;
 /* JavaCCOptions:MULTI=true,NODE_USES_PARSER=false,VISITOR=false,TRACK_TOKENS=false,NODE_PREFIX=sheng.zhong.project2.AST,NODE_EXTENDS=,NODE_FACTORY=,SUPPORT_CLASS_VISIBILITY_PUBLIC=true */
 public
 class ASTAssign extends SimpleNode {
-  int label;
   public ASTAssign(int id) {
     super(id);
   }
 
   public ASTAssign(Sheng p, int id) {
     super(p, id);
-  }
-  public void setLabel (int label) {
-    this.label = label;
   }
   public String toString() {
     return label + " Assign";

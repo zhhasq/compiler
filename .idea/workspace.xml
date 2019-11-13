@@ -7,64 +7,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ded35796-bf8d-4af3-aac5-47cb9cb842d3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/shengParser_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/file/example33/example33.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/file/fibo/fibo.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/file/nosense/back.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/file/nosense/nosense.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Example33.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Nosense.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/file/collatz/collatz.s" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/collatz/collatz.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/file/collatz/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/collatz/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/file/fibo/fibo.s" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/file/fibo/fibo.txt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/file/fibo/fiboNoComment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/file/fibo/fiboNoComment.txt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/file/quadratic/quadraticNoComment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/quadratic/quadraticNoComment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/file/test/test.s" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/file/test/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/test/test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/file/test/test.txt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/file/test/test.txtorigin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/file/test5/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/test5/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/file/test5/test5.s" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/test5/test5.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/nosense/nosense.s" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/nosense/nosense.s" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTAssign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTAssign.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTIf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTIf.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTSkip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTSkip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTWhile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTWhile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ArithLeftAsso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ArithLeftAsso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/Sheng.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/Sheng.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ShengTreeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ShengTreeConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/sheng.jj" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/sheng.jj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/sheng.jjt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/sheng.jjt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Collatz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Collatz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Fibo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Fibo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Prime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Prime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Quadratic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Quadratic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Sort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Sort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Test3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Test3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Test4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Test4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Test5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Test5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/codegenerator/AsseCodeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/codegenerator/AsseCodeFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/codegenerator/CompileExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/codegenerator/CompileExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/SimpleNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/SimpleNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/codegenerator/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/codegenerator/Generator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/statckmachine/StackMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/statckmachine/StackMachine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ArithLeftAsso.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ArithLeftAsso.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Collatz.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Collatz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Fibo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Fibo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Prime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Prime.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Quadratic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Quadratic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Sort.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Sort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Test3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Test3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Test5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Test5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/codegenerator/AsseCodeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/codegenerator/AsseCodeFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/codegenerator/CompileExp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/codegenerator/CompileExp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTAssign.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTAssign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTIf.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTIf.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTSkip.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTSkip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTWhile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTWhile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/SimpleNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/SimpleNode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/codegenerator/Generator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/codegenerator/Generator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/statckmachine/StackMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/statckmachine/StackMachine.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

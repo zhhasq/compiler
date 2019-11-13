@@ -1,9 +1,6 @@
 package sheng.zhong.project2.codegenerator;
 
-import sheng.zhong.project2.AST.Node;
-import sheng.zhong.project2.AST.NodeIDMap;
-import sheng.zhong.project2.AST.NodeUtils;
-import sheng.zhong.project2.AST.SimpleNode;
+import sheng.zhong.project2.AST.*;
 import sheng.zhong.project2.parser.Parse;
 import sheng.zhong.project2.parser.ParseExp;
 import sheng.zhong.project2.statckmachine.StackMachine;
@@ -168,9 +165,11 @@ public class Generator {
 
     public void generateCodeCommand(Node node) {
         if (NodeIDMap.isSkip(node)) {
+            code.add("  #label: " + node.getLabel());
             code.add(AsseCodeFactory.nop());
         } else if (NodeIDMap.isAssign(node)) {
             code.add("  #" + node.jjtGetChild(0).toString() + " := " + NodeUtils.expToString(node.jjtGetChild(1)));
+            code.add("  #label: " + node.getLabel());
             code.addAll(expCodeMap.get(node.jjtGetChild(1)));
             //save t0 to the local variable
             code.add(AsseCodeFactory.storeToMem(Register.t0, varsMap.get(node.jjtGetChild(0).toString()).toString(), Register.s0));
@@ -187,11 +186,14 @@ public class Generator {
 //                 rest code;
             code.add(AsseCodeFactory.jumpLable(tmpLabel1));
             code.add("#code for while condition " + NodeUtils.expToString(node.jjtGetChild(0)) +  " met: ");
+
+
             code.add(AsseCodeFactory.addLable(tmpLabel2));
 
             generateCodeCommands(node.jjtGetChild(1));
 
             code.add("#while condition: " + NodeUtils.expToString(node.jjtGetChild(0)));
+            code.add("  #label: " + node.getLabel());
             code.add(AsseCodeFactory.addLable(tmpLabel1));
             code.addAll(expCodeMap.get(node.jjtGetChild(0)));
 
@@ -205,6 +207,8 @@ public class Generator {
 
             //boolean expression
             code.add("#IF condition: " + NodeUtils.expToString(node.jjtGetChild(0)));
+            code.add("  #label: " + node.getLabel());
+
             code.addAll(expCodeMap.get(node.jjtGetChild(0)));
             //branch if condition not met
             code.add("#go to .L" + tmpLabel1 + " if condition not met");
