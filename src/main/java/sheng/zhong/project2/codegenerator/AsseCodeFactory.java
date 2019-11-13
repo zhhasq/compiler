@@ -257,4 +257,15 @@ public class AsseCodeFactory {
         sb.append(offseLabel);
         return sb.toString();
     }
+
+    public static String or(String destReg,  String reg1, String reg2) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(add(destReg, reg1, reg2));
+        sb.append(System.lineSeparator());
+        sb.append("  snez  ");
+        sb.append(destReg);
+        sb.append(",");
+        sb.append(reg1);
+        return sb.toString();
+    }
 }

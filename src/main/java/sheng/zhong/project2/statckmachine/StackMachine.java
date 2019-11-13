@@ -115,7 +115,7 @@ public class StackMachine {
 
         if(node.toString().equals("*") || node.toString().equals("And")) {
             result.add(StackMachineCode.mul());
-        } else if (node.toString().equals("+") || node.toString().equals("or")) {
+        } else if (node.toString().equals("+")) {
             result.add(StackMachineCode.add());
         } else if (node.toString().equals("-")) {
             result.add(StackMachineCode.sub());
@@ -131,6 +131,8 @@ public class StackMachine {
             result.add(StackMachineCode.equal());
         } else if (node.toString().equals("Not")) {
             result.add(StackMachineCode.not());
+        } else if (node.toString().equals("or")) {
+            result.add(StackMachineCode.or());
         }
         //less right - left
         //greater  left - right

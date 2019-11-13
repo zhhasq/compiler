@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class Test3 {
     public static void main(String[] args) {
-        Generator generator = new Generator("test3", "inputArr");
+        Generator generator = new Generator("src/file/test3", "test3", "inputArr");
 
         generator.generateCode();
         generator.showInfo();

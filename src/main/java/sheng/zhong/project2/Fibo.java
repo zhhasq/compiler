@@ -8,7 +8,7 @@ public class Fibo {
 
     public static void main(String[] args) {
         if (true) {
-            Generator generator = new Generator("fibo", "inputArr");
+            Generator generator = new Generator("src/file/fibo", "fibo", "inputArr");
 
             generator.generateCode();
             generator.showInfo();
@@ -18,7 +18,13 @@ public class Fibo {
             generator.showAsseCode();
             generator.toFile();
         }
-        System.out.println(fibonacci(20));
+        System.out.println("0 th fibonacci number is " + fibonacci(0));
+        System.out.println("1 th fibonacci number is " + fibonacci(1));
+        System.out.println("2 th fibonacci number is " + fibonacci(2));
+        System.out.println("14 th fibonacci number is " + fibonacci(14));
+        System.out.println("43 th fibonacci number is " + fibonacci(43));
+        System.out.println("66 th fibonacci number is " + fibonacci(66));
+
     }
 
     public static long fibonacci(int k) {
@@ -28,6 +34,7 @@ public class Fibo {
         long a = 0;
         long b = 1;
         long i = 1;
+
         while (i < k) {
             long sum = a + b;
             a = b;

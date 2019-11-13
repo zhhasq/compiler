@@ -48,8 +48,8 @@ public class Generator {
     Map<String, Integer> argumentMapArray;
     String inputName;
     int label = 1;
-
-    public Generator(String file, String inputName) {
+    String path;
+    public Generator(String path, String file, String inputName) {
         //argument refers to the inputs of the while language.
         //input refers to the c language;
         code = new ArrayList<>();
@@ -66,11 +66,12 @@ public class Generator {
         this.inputName = inputName;
         varsMap = new HashMap<>();
         argumentMapArray = new HashMap<>();
+        this.path = path;
     }
 
     public void init() {
-        root = Parse.toAst( "src/file/" + file + "/" + file + ".txt");
-
+        //root = Parse.toAst( "src/file/" + file + "/" + file + ".txt");
+        root = Parse.toAst(  path + "/" + file + ".txt");
 //        List<Node> test = ParseExp.findExpNode(root);
 //        for (Node node : test) {
 //            SimpleNode snode =(SimpleNode) node;
@@ -281,16 +282,18 @@ public class Generator {
     }
     public void toFile() {
         try{
-            File outputFile =new File("src/file/" + file + "/" + file + ".s");
+           // File outputFile =new File("src/file/" + file + "/" + file + ".s");
 
+            File outputFile =new File(path + "/" + file + ".s");
             //if file doesnt exists, then create it
             if(!outputFile.exists()){
                 outputFile.createNewFile();
             }
 
             //true = append file
-            System.out.println("src/file/" + file + "/" + file + ".s");
-            FileWriter fileWritter = new FileWriter("src/file/" + file + "/" + file + ".s");
+            //System.out.println("src/file/" + file + "/" + file + ".s");
+           // FileWriter fileWritter = new FileWriter("src/file/" + file + "/" + file + ".s");
+            FileWriter fileWritter = new FileWriter(path + "/" + file + ".s");
             BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
             for (String s : code) {
                 bufferWritter.write(s + "\n");
@@ -343,15 +346,16 @@ public class Generator {
         main.add("}");
 
         try{
-            File outputFile =new File("src/file/" + file + "/" + "main" + ".c");
-
+            //File outputFile =new File("src/file/" + file + "/" + "main" + ".c");
+            File outputFile =new File(path + "/" + "main" + ".c");
             //if file doesnt exists, then create it
             if(!outputFile.exists()){
                 outputFile.createNewFile();
             }
 
             //true = append file
-            FileWriter fileWritter = new FileWriter("src/file/" + file + "/" + "main" + ".c");
+           // FileWriter fileWritter = new FileWriter("src/file/" + file + "/" + "main" + ".c");
+            FileWriter fileWritter = new FileWriter(path + "/" + "main" + ".c");
             BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
             for (String s : main) {
                 bufferWritter.write(s + "\n");

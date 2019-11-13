@@ -86,6 +86,8 @@ public class CompileExp {
                 asseCode.add(AsseCodeFactory.not(t0, t0));
             } else if (code.getCode().equals(StackMachineCode.EQUAL)) {
                 asseCode.add(AsseCodeFactory.equal(t0, t1, t0));
+            } else if (code.getCode().equals(StackMachineCode.OR)) {
+                asseCode.add(AsseCodeFactory.or(t0, t0, t1));
             }
 
         }

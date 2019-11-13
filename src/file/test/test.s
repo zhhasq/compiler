@@ -6,136 +6,77 @@
     .type test, @function
 test:
 
-  addi  sp,sp,-152
-  sd    s0,144(sp)
-  addi  s0,sp,152
-  sd    a0,-104(s0)
-  ld    a0,-104(s0)
+  addi  sp,sp,-120
+  sd    s0,112(sp)
+  addi  s0,sp,120
+  sd    a0,-72(s0)
+  ld    a0,-72(s0)
   ld    t0,0(a0)
-  sd    t0,-64(s0)
+  sd    t0,-40(s0)
   ld    t0,8(a0)
-  sd    t0,-72(s0)
-  ld    t0,16(a0)
-  sd    t0,-80(s0)
-  ld    t0,24(a0)
-  sd    t0,-88(s0)
-nop
-nop
-nop
-  j     .L2
-#code for while condition (((true or ((false or ((a Gre 1 ) And (b Less 3 ) ) ) And (a Gre b ) ) ) or (Not((1 Gre 3 ) ) ) ) or (c Less 1 ) )  met: 
-.L3:
-  #a := (((2 + b ) - ((3 * (1 - (a * (5 - d ) ) ) ) * 2 ) ) - (c * 1 ) ) 
-  li    t0,2
-  sd    t0,-16(s0)
-  ld    t0,-72(s0)
-  ld    t1,-16(s0)
-  add   t0,t0,t1
-  sd    t0,-16(s0)
-  li    t0,3
-  sd    t0,-24(s0)
-  li    t0,1
-  sd    t0,-32(s0)
-  ld    t0,-64(s0)
-  sd    t0,-40(s0)
-  li    t0,5
   sd    t0,-48(s0)
-  ld    t0,-88(s0)
-  ld    t1,-48(s0)
-  sub   t0,t1,t0
-  ld    t1,-40(s0)
-  mul   t0,t0,t1
-  ld    t1,-32(s0)
-  sub   t0,t1,t0
-  ld    t1,-24(s0)
-  mul   t0,t0,t1
-  sd    t0,-24(s0)
-  li    t0,2
-  ld    t1,-24(s0)
-  mul   t0,t0,t1
-  ld    t1,-16(s0)
-  sub   t0,t1,t0
+  ld    t0,16(a0)
+  sd    t0,-56(s0)
+nop
+nop
+nop
+#IF condition: ((count3 Less= count4 ) or ((count1 Less= count3 ) And true ) ) 
+  ld    t0,-48(s0)
   sd    t0,-16(s0)
-  ld    t0,-80(s0)
+  ld    t0,-56(s0)
+  ld    t1,-16(s0)
+  sub   t1,t1,t0
+  sgtz  t0,t1
+  xori  t0,t0,1
+  sd    t0,-16(s0)
+  ld    t0,-40(s0)
+  sd    t0,-24(s0)
+  ld    t0,-48(s0)
+  ld    t1,-24(s0)
+  sub   t1,t1,t0
+  sgtz  t0,t1
+  xori  t0,t0,1
   sd    t0,-24(s0)
   li    t0,1
   ld    t1,-24(s0)
   mul   t0,t0,t1
   ld    t1,-16(s0)
-  sub   t0,t1,t0
-  sd    t0,-64(s0)
-#while condition: (((true or ((false or ((a Gre 1 ) And (b Less 3 ) ) ) And (a Gre b ) ) ) or (Not((1 Gre 3 ) ) ) ) or (c Less 1 ) ) 
+  add   t0,t0,t1
+#go to .L2 if condition not met
+  beqz  t0,.L2
+#Things to do when IF condition: ((count3 Less= count4 ) or ((count1 Less= count3 ) And true ) )  is met
+  #count3 := (count3 + count4 ) 
+  ld    t0,-48(s0)
+  sd    t0,-16(s0)
+  ld    t0,-56(s0)
+  ld    t1,-16(s0)
+  add   t0,t0,t1
+  sd    t0,-48(s0)
+  j     .L3
+#Things to do when IF condition: ((count3 Less= count4 ) or ((count1 Less= count3 ) And true ) )  is Not met
 .L2:
-  li    t0,1
+  #count3 := (count3 - count4 ) 
+  ld    t0,-48(s0)
   sd    t0,-16(s0)
-  li    t0,0
-  sd    t0,-24(s0)
-  ld    t0,-64(s0)
-  sd    t0,-32(s0)
-  li    t0,1
-  ld    t1,-32(s0)
-  sub   t1,t1,t0
-  sgtz  t0,t1
-  sd    t0,-32(s0)
-  ld    t0,-72(s0)
-  sd    t0,-40(s0)
-  li    t0,3
-  ld    t1,-40(s0)
-  sub   t1,t0,t1
-  sgtz  t0,t1
-  ld    t1,-32(s0)
-  mul   t0,t0,t1
-  ld    t1,-24(s0)
-  add   t0,t0,t1
-  sd    t0,-24(s0)
-  ld    t0,-64(s0)
-  sd    t0,-32(s0)
-  ld    t0,-72(s0)
-  ld    t1,-32(s0)
-  sub   t1,t1,t0
-  sgtz  t0,t1
-  ld    t1,-24(s0)
-  mul   t0,t0,t1
+  ld    t0,-56(s0)
   ld    t1,-16(s0)
-  add   t0,t0,t1
-  sd    t0,-16(s0)
-  li    t0,1
-  sd    t0,-24(s0)
-  li    t0,3
-  ld    t1,-24(s0)
-  sub   t1,t1,t0
-  sgtz  t0,t1
-  sd    t0,-24(s0)
-  ld    t1,-24(s0)
-  xori  t0,t1,1
-  ld    t1,-16(s0)
-  add   t0,t0,t1
-  sd    t0,-16(s0)
-  ld    t0,-80(s0)
-  sd    t0,-24(s0)
-  li    t0,1
-  ld    t1,-24(s0)
-  sub   t1,t0,t1
-  sgtz  t0,t1
-  ld    t1,-16(s0)
-  add   t0,t0,t1
-  bnez  t0,.L3
-#code for while condition (((true or ((false or ((a Gre 1 ) And (b Less 3 ) ) ) And (a Gre b ) ) ) or (Not((1 Gre 3 ) ) ) ) or (c Less 1 ) )  not met: 
+  sub   t0,t1,t0
+  sd    t0,-48(s0)
+#code after if ((count3 Less= count4 ) or ((count1 Less= count3 ) And true ) ) 
+.L3:
 nop
 nop
 nop
-  ld    a0,-104(s0)
-  ld    t0,-64(s0)
+  ld    a0,-72(s0)
+  ld    t0,-40(s0)
   sd    t0,0(a0)
-  ld    t0,-72(s0)
+  ld    t0,-48(s0)
   sd    t0,8(a0)
-  ld    t0,-80(s0)
+  ld    t0,-56(s0)
   sd    t0,16(a0)
-  ld    t0,-88(s0)
-  sd    t0,24(a0)
 nop
-  ld    s0,144(sp)
-  addi  sp,sp,152
+  ld    s0,112(sp)
+  addi  sp,sp,120
 jr  ra
     .size   test, .-test
     .ident "GCC: (GNU) 9.0.1 20190123 (Red Hat 9.0.1-0.1)"

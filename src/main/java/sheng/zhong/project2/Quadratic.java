@@ -5,7 +5,7 @@ import sheng.zhong.project2.codegenerator.Generator;
 public class Quadratic {
     public static void main(String[] args) {
         if (true) {
-            Generator generator = new Generator("quadratic", "inputArr");
+            Generator generator = new Generator("src/file/quadratic", "quadratic", "inputArr");
 
             generator.generateCode();
 

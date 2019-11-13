@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class Sort {
     public static void main(String[] args) {
         if (true) {
-            Generator generator = new Generator("sort", "inputArr");
+            Generator generator = new Generator("src/file/sort", "sort", "inputArr");
 
             generator.generateCode();
             generator.showInfo();

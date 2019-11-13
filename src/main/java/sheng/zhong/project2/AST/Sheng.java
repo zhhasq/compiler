@@ -15,7 +15,7 @@ public class Sheng/*@bgen(jjtree)*/implements ShengTreeConstants, ShengConstants
   boolean jjtc000 = true;
   jjtree.openNodeScope(jjtn000);
     try {
-      Commands();
+      Commands(0);
       jj_consume_token(0);
 jjtree.closeNodeScope(jjtn000, true);
           jjtc000 = false;
@@ -42,12 +42,12 @@ if (jjtc000) {
     throw new Error("Missing return statement in function");
   }
 
-  static final public void Commands() throws ParseException {/*@bgen(jjtree) Commands */
+  static final public int Commands(int label) throws ParseException {/*@bgen(jjtree) Commands */
   ASTCommands jjtn000 = new ASTCommands(JJTCOMMANDS);
   boolean jjtc000 = true;
   jjtree.openNodeScope(jjtn000);
     try {
-      OneCommand();
+      label = OneCommand(label);
       label_1:
       while (true) {
         if (jj_2_1(10)) {
@@ -56,8 +56,11 @@ if (jjtc000) {
           break label_1;
         }
         jj_consume_token(LINEEND);
-        OneCommand();
+        label = OneCommand(label);
       }
+jjtree.closeNodeScope(jjtn000, true);
+          jjtc000 = false;
+{if ("" != null) return label;}
     } catch (Throwable jjte000) {
 if (jjtc000) {
             jjtree.clearNodeScope(jjtn000);
@@ -77,23 +80,19 @@ if (jjtc000) {
             jjtree.closeNodeScope(jjtn000, true);
           }
     }
+    throw new Error("Missing return statement in function");
   }
 
-  static final public void OneCommand() throws ParseException {
+  static final public int OneCommand(int label) throws ParseException {
     if (jj_2_2(10)) {
-      Assignment();
-    } else if (jj_2_3(10)) {
-ASTIf jjtn001 = new ASTIf(JJTIF);
+ASTAssign jjtn001 = new ASTAssign(JJTASSIGN);
           boolean jjtc001 = true;
           jjtree.openNodeScope(jjtn001);
       try {
-        jj_consume_token(IF);
-        BExp();
-        jj_consume_token(THEN);
-        Commands();
-        jj_consume_token(ELSE);
-        Commands();
-        jj_consume_token(FI);
+        Assignment();
+jjtree.closeNodeScope(jjtn001, true);
+                           jjtc001 = false;
+jjtn001.setLabel(label);
       } catch (Throwable jjte001) {
 if (jjtc001) {
             jjtree.clearNodeScope(jjtn001);
@@ -113,16 +112,20 @@ if (jjtc001) {
             jjtree.closeNodeScope(jjtn001, true);
           }
       }
-    } else if (jj_2_4(10)) {
-ASTWhile jjtn002 = new ASTWhile(JJTWHILE);
+{if ("" != null) return ++label;}
+    } else if (jj_2_3(10)) {
+ASTIf jjtn002 = new ASTIf(JJTIF);
           boolean jjtc002 = true;
           jjtree.openNodeScope(jjtn002);
       try {
-        jj_consume_token(WHILE);
+jjtn002.setLabel(label++);
+        jj_consume_token(IF);
         BExp();
-        jj_consume_token(DO);
-        Commands();
-        jj_consume_token(OD);
+        jj_consume_token(THEN);
+        label = Commands(label);
+        jj_consume_token(ELSE);
+        label = Commands(label);
+        jj_consume_token(FI);
       } catch (Throwable jjte002) {
 if (jjtc002) {
             jjtree.clearNodeScope(jjtn002);
@@ -142,50 +145,64 @@ if (jjtc002) {
             jjtree.closeNodeScope(jjtn002, true);
           }
       }
-    } else if (jj_2_5(10)) {
-ASTSkip jjtn003 = new ASTSkip(JJTSKIP);
+{if ("" != null) return label;}
+    } else if (jj_2_4(10)) {
+ASTWhile jjtn003 = new ASTWhile(JJTWHILE);
           boolean jjtc003 = true;
           jjtree.openNodeScope(jjtn003);
       try {
-        jj_consume_token(SKIP2);
+jjtn003.setLabel(label++);
+        jj_consume_token(WHILE);
+        BExp();
+        jj_consume_token(DO);
+        label = Commands(label);
+        jj_consume_token(OD);
+      } catch (Throwable jjte003) {
+if (jjtc003) {
+            jjtree.clearNodeScope(jjtn003);
+            jjtc003 = false;
+          } else {
+            jjtree.popNode();
+          }
+          if (jjte003 instanceof RuntimeException) {
+            {if (true) throw (RuntimeException)jjte003;}
+          }
+          if (jjte003 instanceof ParseException) {
+            {if (true) throw (ParseException)jjte003;}
+          }
+          {if (true) throw (Error)jjte003;}
       } finally {
 if (jjtc003) {
             jjtree.closeNodeScope(jjtn003, true);
           }
       }
+{if ("" != null) return label;}
+    } else if (jj_2_5(10)) {
+ASTSkip jjtn004 = new ASTSkip(JJTSKIP);
+          boolean jjtc004 = true;
+          jjtree.openNodeScope(jjtn004);
+      try {
+        jj_consume_token(SKIP2);
+jjtree.closeNodeScope(jjtn004, true);
+                       jjtc004 = false;
+jjtn004.setLabel(label);
+      } finally {
+if (jjtc004) {
+            jjtree.closeNodeScope(jjtn004, true);
+          }
+      }
+{if ("" != null) return ++label;}
     } else {
       jj_consume_token(-1);
       throw new ParseException();
     }
+    throw new Error("Missing return statement in function");
   }
 
-  static final public void Assignment() throws ParseException {/*@bgen(jjtree) Assign */
-  ASTAssign jjtn000 = new ASTAssign(JJTASSIGN);
-  boolean jjtc000 = true;
-  jjtree.openNodeScope(jjtn000);
-    try {
-      Var();
-      jj_consume_token(ASSIGN);
-      AExp();
-    } catch (Throwable jjte000) {
-if (jjtc000) {
-            jjtree.clearNodeScope(jjtn000);
-            jjtc000 = false;
-          } else {
-            jjtree.popNode();
-          }
-          if (jjte000 instanceof RuntimeException) {
-            {if (true) throw (RuntimeException)jjte000;}
-          }
-          if (jjte000 instanceof ParseException) {
-            {if (true) throw (ParseException)jjte000;}
-          }
-          {if (true) throw (Error)jjte000;}
-    } finally {
-if (jjtc000) {
-            jjtree.closeNodeScope(jjtn000, true);
-          }
-    }
+  static final public void Assignment() throws ParseException {
+    Var();
+    jj_consume_token(ASSIGN);
+    AExp();
   }
 
   static final public void AExp() throws ParseException {String s = "";
@@ -1111,6 +1128,13 @@ if (jjtc001) {
     return false;
   }
 
+  static private boolean jj_3_1()
+ {
+    if (jj_scan_token(LINEEND)) return true;
+    if (jj_3R_2()) return true;
+    return false;
+  }
+
   static private boolean jj_3_5()
  {
     if (jj_scan_token(SKIP2)) return true;
@@ -1142,10 +1166,13 @@ if (jjtc001) {
     return false;
   }
 
-  static private boolean jj_3_1()
+  static private boolean jj_3R_11()
  {
-    if (jj_scan_token(LINEEND)) return true;
-    if (jj_3R_2()) return true;
+    if (jj_scan_token(OR)) return true;
+    if (jj_3R_13()) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3_17()) jj_scanpos = xsp;
     return false;
   }
 
@@ -1158,16 +1185,6 @@ if (jjtc001) {
     if (jj_scan_token(ELSE)) return true;
     if (jj_3R_5()) return true;
     if (jj_scan_token(FI)) return true;
-    return false;
-  }
-
-  static private boolean jj_3R_11()
- {
-    if (jj_scan_token(OR)) return true;
-    if (jj_3R_13()) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3_17()) jj_scanpos = xsp;
     return false;
   }
 

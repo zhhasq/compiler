@@ -26,36 +26,39 @@ collatz:
 nop
 nop
 nop
-# n := input
+  #n := input 
   ld    t0,-40(s0)
   sd    t0,-72(s0)
-# steps := 0
+  #steps := 0 
   li    t0,0
   sd    t0,-64(s0)
   j     .L2
+#code for while condition (n Gre 1 )  met: 
 .L3:
-# rem := n
+  #rem := n 
   ld    t0,-72(s0)
   sd    t0,-48(s0)
-# quot := 0
+  #quot := 0 
   li    t0,0
   sd    t0,-56(s0)
   j     .L4
+#code for while condition (rem Gre 1 )  met: 
 .L5:
-# rem := (rem-2)
+  #rem := (rem - 2 ) 
   ld    t0,-48(s0)
   sd    t0,-16(s0)
   li    t0,2
   ld    t1,-16(s0)
   sub   t0,t1,t0
   sd    t0,-48(s0)
-# quot := (quot+1)
+  #quot := (quot + 1 ) 
   ld    t0,-56(s0)
   sd    t0,-16(s0)
   li    t0,1
   ld    t1,-16(s0)
   add   t0,t0,t1
   sd    t0,-56(s0)
+#while condition: (rem Gre 1 ) 
 .L4:
   ld    t0,-48(s0)
   sd    t0,-16(s0)
@@ -64,19 +67,24 @@ nop
   sub   t1,t1,t0
   sgtz  t0,t1
   bnez  t0,.L5
+#code for while condition (rem Gre 1 )  not met: 
+#IF condition: (rem = 0 ) 
   ld    t0,-48(s0)
   sd    t0,-16(s0)
   li    t0,0
   ld    t1,-16(s0)
   sub   t1,t1,t0
   seqz  t0,t1
+#go to .L6 if condition not met
   beqz  t0,.L6
-# n := quot
+#Things to do when IF condition: (rem = 0 )  is met
+  #n := quot 
   ld    t0,-56(s0)
   sd    t0,-72(s0)
   j     .L7
+#Things to do when IF condition: (rem = 0 )  is Not met
 .L6:
-# n := ((3*n)+1)
+  #n := ((3 * n ) + 1 ) 
   li    t0,3
   sd    t0,-16(s0)
   ld    t0,-72(s0)
@@ -87,14 +95,16 @@ nop
   ld    t1,-16(s0)
   add   t0,t0,t1
   sd    t0,-72(s0)
+#code after if (rem = 0 ) 
 .L7:
-# steps := (steps+1)
+  #steps := (steps + 1 ) 
   ld    t0,-64(s0)
   sd    t0,-16(s0)
   li    t0,1
   ld    t1,-16(s0)
   add   t0,t0,t1
   sd    t0,-64(s0)
+#while condition: (n Gre 1 ) 
 .L2:
   ld    t0,-72(s0)
   sd    t0,-16(s0)
@@ -103,7 +113,8 @@ nop
   sub   t1,t1,t0
   sgtz  t0,t1
   bnez  t0,.L3
-# output := steps
+#code for while condition (n Gre 1 )  not met: 
+  #output := steps 
   ld    t0,-64(s0)
   sd    t0,-32(s0)
 nop

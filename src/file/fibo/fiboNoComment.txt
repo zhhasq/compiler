@@ -1,11 +1,18 @@
  
 if (a <= 0) then 
     b := 0 
-   else 
+else 
     skip 
 fi; 
+ 
+if (a >= 1) then 
+    b := 1 
+else 
+    skip 
+fi; 
+ 
 tmp1 := 0; 
-b := 1; 
+ 
 while (a > 1) do 
   sum := tmp1 + b; 
   tmp1 := b; 

@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class Test4 {
     public static void main(String[] args) {
         if (false) {
-            Generator generator = new Generator("test4",  "inputArr");
+            Generator generator = new Generator("src/file/test4", "test4",  "inputArr");
 
             generator.generateCode();
             generator.showInfo();

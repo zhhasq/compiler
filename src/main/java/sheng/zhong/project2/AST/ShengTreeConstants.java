@@ -6,10 +6,10 @@ public interface ShengTreeConstants
   public int JJTSTART = 0;
   public int JJTCOMMANDS = 1;
   public int JJTVOID = 2;
-  public int JJTIF = 3;
-  public int JJTWHILE = 4;
-  public int JJTSKIP = 5;
-  public int JJTASSIGN = 6;
+  public int JJTASSIGN = 3;
+  public int JJTIF = 4;
+  public int JJTWHILE = 5;
+  public int JJTSKIP = 6;
   public int JJTADD = 7;
   public int JJTMULT = 8;
   public int JJTINT = 9;
@@ -28,10 +28,10 @@ public interface ShengTreeConstants
     "START",
     "Commands",
     "void",
+    "Assign",
     "If",
     "While",
     "Skip",
-    "Assign",
     "Add",
     "Mult",
     "Int",
@@ -46,4 +46,4 @@ public interface ShengTreeConstants
     "Id",
   };
 }
-/* JavaCC - OriginalChecksum=0079fb1315f8fb2f5b5e892bdd49c964 (do not edit this line) */
+/* JavaCC - OriginalChecksum=a8311791ac361203aa31ad7dc14e6a5e (do not edit this line) */

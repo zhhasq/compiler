@@ -42,15 +42,32 @@ nop
 nop
 #code after if (a Less= 0 ) 
 .L3:
-  #tmp1 := 0 
-  li    t0,0
-  sd    t0,-56(s0)
+#IF condition: (a Gre= 1 ) 
+  ld    t0,-32(s0)
+  sd    t0,-16(s0)
+  li    t0,1
+  ld    t1,-16(s0)
+  sub   t1,t0,t1
+  sgtz  t0,t1
+  xori  t0,t0,1
+#go to .L4 if condition not met
+  beqz  t0,.L4
+#Things to do when IF condition: (a Gre= 1 )  is met
   #b := 1 
   li    t0,1
   sd    t0,-40(s0)
-  j     .L4
-#code for while condition (a Gre 1 )  met: 
+  j     .L5
+#Things to do when IF condition: (a Gre= 1 )  is Not met
+.L4:
+nop
+#code after if (a Gre= 1 ) 
 .L5:
+  #tmp1 := 0 
+  li    t0,0
+  sd    t0,-56(s0)
+  j     .L6
+#code for while condition (a Gre 1 )  met: 
+.L7:
   #sum := (tmp1 + b ) 
   ld    t0,-56(s0)
   sd    t0,-16(s0)
@@ -72,14 +89,14 @@ nop
   sub   t0,t1,t0
   sd    t0,-32(s0)
 #while condition: (a Gre 1 ) 
-.L4:
+.L6:
   ld    t0,-32(s0)
   sd    t0,-16(s0)
   li    t0,1
   ld    t1,-16(s0)
   sub   t1,t1,t0
   sgtz  t0,t1
-  bnez  t0,.L5
+  bnez  t0,.L7
 #code for while condition (a Gre 1 )  not met: 
 nop
 nop

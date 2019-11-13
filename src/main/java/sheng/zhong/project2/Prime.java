@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class Prime {
     public static void main(String[] args) {
         if (true) {
-            Generator generator = new Generator("prime", "inputArr");
+            Generator generator = new Generator("src/file/prime" ,"prime", "inputArr");
 
             generator.generateCode();
             generator.showInfo();
@@ -17,10 +17,16 @@ public class Prime {
             generator.showAsseCode();
             generator.toFile();
         }
-        System.out.println(isPrime(5000));
+        System.out.println("range: [2 - 1]: " + countPrime(1));
+        System.out.println("range: [2 - 2]: " + countPrime(2));
+        System.out.println("range: [2 - 10]: " + countPrime(10));
+        System.out.println("range: [2 - 175]: " + countPrime(175));
+        System.out.println("range: [2 - 631]: " + countPrime(631));
+
+
     }
 
-    public static int isPrime(int range) {
+    public static int countPrime(int range) {
         int result = 0;
         while (range >= 2) {
             boolean flag = false;

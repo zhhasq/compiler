@@ -68,39 +68,45 @@ TOKEN : /* IDENTIFIERS */
 SimpleNode Start() #START:
 {}
 {
-	Commands()<EOF>
+	Commands(0)<EOF>
 	{return jjtThis;}
 }
 
-void Commands() :
+int Commands(int label) :
 {}
 {
-	OneCommand() (<LINEEND> OneCommand())*
+	label = OneCommand(label) (<LINEEND>  label = OneCommand(label))*
+	{return label;}
 }
 
 
 
-void OneCommand () #void:
+int OneCommand (int label) #void:
 {}
 {
-	Assignment()
-|	
 	(
-		<IF> BExp() <THEN> Commands() <ELSE> Commands() <FI>
+	    Assignment() {jjtThis.setLabel(label);}
+    ) #Assign
+    {return ++label;}
+|
+	(
+		 {jjtThis.setLabel(label++);} <IF> BExp() <THEN> label = Commands(label) <ELSE> label = Commands(label) <FI>
 	)
 	#If
-|	
+    {return label;}
+|
 	(
-		<WHILE> BExp() <DO> Commands() <OD>
+		 {jjtThis.setLabel(label++);} <WHILE> BExp() <DO> label = Commands(label) <OD>
 	) #While
-|	
+    {return label;}
+|
 	(
-	    <SKIP2>
+	    <SKIP2>  {jjtThis.setLabel(label);}
 	) #Skip
-
+    {return ++label;}
 }
 
-void Assignment() #Assign :
+void Assignment() #void :
 {}
 {
 	Var() <ASSIGN> AExp()

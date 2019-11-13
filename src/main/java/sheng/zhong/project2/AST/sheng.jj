@@ -78,7 +78,7 @@ SimpleNode Start()       :
 {/*@bgen(jjtree) START */
         try {
 /*@egen*/
-	Commands()<EOF>/*@bgen(jjtree)*/
+	Commands(0)<EOF>/*@bgen(jjtree)*/
         {
           jjtree.closeNodeScope(jjtn000, true);
           jjtc000 = false;
@@ -107,7 +107,7 @@ SimpleNode Start()       :
 /*@egen*/
 }
 
-void Commands() :
+int Commands(int label) :
 {/*@bgen(jjtree) Commands */
   ASTCommands jjtn000 = new ASTCommands(JJTCOMMANDS);
   boolean jjtc000 = true;
@@ -116,7 +116,13 @@ void Commands() :
 {/*@bgen(jjtree) Commands */
         try {
 /*@egen*/
-	OneCommand() (<LINEEND> OneCommand())*/*@bgen(jjtree)*/
+	label = OneCommand(label) (<LINEEND>  label = OneCommand(label))*/*@bgen(jjtree)*/
+        {
+          jjtree.closeNodeScope(jjtn000, true);
+          jjtc000 = false;
+        }
+/*@egen*/
+	{return label;}/*@bgen(jjtree)*/
         } catch (Throwable jjte000) {
           if (jjtc000) {
             jjtree.clearNodeScope(jjtn000);
@@ -141,21 +147,24 @@ void Commands() :
 
 
 
-void OneCommand ()      :
+int OneCommand (int label)      :
 {}
-{
-	Assignment()
-|/*@bgen(jjtree) If */
+{/*@bgen(jjtree) Assign */
         {
-          ASTIf jjtn001 = new ASTIf(JJTIF);
+          ASTAssign jjtn001 = new ASTAssign(JJTASSIGN);
           boolean jjtc001 = true;
           jjtree.openNodeScope(jjtn001);
         }
         try {
-/*@egen*/	
+/*@egen*/
 	(
-		<IF> BExp() <THEN> Commands() <ELSE> Commands() <FI>
-	)/*@bgen(jjtree)*/
+	    Assignment()/*@bgen(jjtree)*/
+                         {
+                           jjtree.closeNodeScope(jjtn001, true);
+                           jjtc001 = false;
+                         }
+/*@egen*/ {jjtn001.setLabel(label);}
+    )/*@bgen(jjtree)*/
         } catch (Throwable jjte001) {
           if (jjtc001) {
             jjtree.clearNodeScope(jjtn001);
@@ -175,18 +184,18 @@ void OneCommand ()      :
             jjtree.closeNodeScope(jjtn001, true);
           }
         }
-/*@egen*/
-	   
-|/*@bgen(jjtree) While */
+/*@egen*/        
+    {return ++label;}
+|/*@bgen(jjtree) If */
         {
-          ASTWhile jjtn002 = new ASTWhile(JJTWHILE);
+          ASTIf jjtn002 = new ASTIf(JJTIF);
           boolean jjtc002 = true;
           jjtree.openNodeScope(jjtn002);
         }
         try {
-/*@egen*/	
+/*@egen*/
 	(
-		<WHILE> BExp() <DO> Commands() <OD>
+		 {jjtn002.setLabel(label++);} <IF> BExp() <THEN> label = Commands(label) <ELSE> label = Commands(label) <FI>
 	)/*@bgen(jjtree)*/
         } catch (Throwable jjte002) {
           if (jjtc002) {
@@ -207,57 +216,70 @@ void OneCommand ()      :
             jjtree.closeNodeScope(jjtn002, true);
           }
         }
-/*@egen*/       
-|/*@bgen(jjtree) Skip */
+/*@egen*/
+	   
+    {return label;}
+|/*@bgen(jjtree) While */
         {
-          ASTSkip jjtn003 = new ASTSkip(JJTSKIP);
+          ASTWhile jjtn003 = new ASTWhile(JJTWHILE);
           boolean jjtc003 = true;
           jjtree.openNodeScope(jjtn003);
         }
         try {
-/*@egen*/	
+/*@egen*/
 	(
-	    <SKIP2>
+		 {jjtn003.setLabel(label++);} <WHILE> BExp() <DO> label = Commands(label) <OD>
 	)/*@bgen(jjtree)*/
+        } catch (Throwable jjte003) {
+          if (jjtc003) {
+            jjtree.clearNodeScope(jjtn003);
+            jjtc003 = false;
+          } else {
+            jjtree.popNode();
+          }
+          if (jjte003 instanceof RuntimeException) {
+            throw (RuntimeException)jjte003;
+          }
+          if (jjte003 instanceof ParseException) {
+            throw (ParseException)jjte003;
+          }
+          throw (Error)jjte003;
         } finally {
           if (jjtc003) {
             jjtree.closeNodeScope(jjtn003, true);
           }
         }
-/*@egen*/      
-
-}
-
-void Assignment()         :
-{/*@bgen(jjtree) Assign */
-  ASTAssign jjtn000 = new ASTAssign(JJTASSIGN);
-  boolean jjtc000 = true;
-  jjtree.openNodeScope(jjtn000);
-/*@egen*/}
-{/*@bgen(jjtree) Assign */
+/*@egen*/       
+    {return label;}
+|/*@bgen(jjtree) Skip */
+        {
+          ASTSkip jjtn004 = new ASTSkip(JJTSKIP);
+          boolean jjtc004 = true;
+          jjtree.openNodeScope(jjtn004);
+        }
         try {
 /*@egen*/
-	Var() <ASSIGN> AExp()/*@bgen(jjtree)*/
-        } catch (Throwable jjte000) {
-          if (jjtc000) {
-            jjtree.clearNodeScope(jjtn000);
-            jjtc000 = false;
-          } else {
-            jjtree.popNode();
-          }
-          if (jjte000 instanceof RuntimeException) {
-            throw (RuntimeException)jjte000;
-          }
-          if (jjte000 instanceof ParseException) {
-            throw (ParseException)jjte000;
-          }
-          throw (Error)jjte000;
+	(
+	    <SKIP2>/*@bgen(jjtree)*/
+                     {
+                       jjtree.closeNodeScope(jjtn004, true);
+                       jjtc004 = false;
+                     }
+/*@egen*/  {jjtn004.setLabel(label);}
+	)/*@bgen(jjtree)*/
         } finally {
-          if (jjtc000) {
-            jjtree.closeNodeScope(jjtn000, true);
+          if (jjtc004) {
+            jjtree.closeNodeScope(jjtn004, true);
           }
         }
-/*@egen*/
+/*@egen*/      
+    {return ++label;}
+}
+
+void Assignment()       :
+{}
+{
+	Var() <ASSIGN> AExp()
 }
 
 void AExp()      :

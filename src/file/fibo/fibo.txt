@@ -1,0 +1,30 @@
+{-
+    useful input:
+        a: a'th fibonacci number
+        if a is too big will cause overflow
+    tmp variables:
+        tmp1, sum
+    output:
+        b
+-}
+
+if (a <= 0) then
+    b := 0
+else
+    skip
+fi;
+
+if (a >= 1) then
+    b := 1
+else
+    skip
+fi;
+
+tmp1 := 0;
+
+while (a > 1) do
+  sum := tmp1 + b;
+  tmp1 := b;
+  b := sum;
+  a := a - 1
+od

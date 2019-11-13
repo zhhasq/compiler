@@ -4,6 +4,7 @@ package sheng.zhong.project2.AST;
 /* JavaCCOptions:MULTI=true,NODE_USES_PARSER=false,VISITOR=false,TRACK_TOKENS=false,NODE_PREFIX=sheng.zhong.project2.AST,NODE_EXTENDS=,NODE_FACTORY=,SUPPORT_CLASS_VISIBILITY_PUBLIC=true */
 public
 class ASTIf extends SimpleNode {
+  int label;
   public ASTIf(int id) {
     super(id);
   }
@@ -11,6 +12,11 @@ class ASTIf extends SimpleNode {
   public ASTIf(Sheng p, int id) {
     super(p, id);
   }
-
+  public void setLabel (int label) {
+    this.label = label;
+  }
+  public String toString() {
+    return label + " If";
+  }
 }
 /* JavaCC - OriginalChecksum=98ad01d9c1625aa7e6d0aa67226c21ba (do not edit this line) */

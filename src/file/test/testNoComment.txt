@@ -1,0 +1,5 @@
+ if (( (count3 <= count4 or count1 <= count3 and true))) then 
+            count3 := count3 + count4 
+        else 
+            count3 := count3 - count4 
+        fi 

@@ -18,7 +18,7 @@ public class Test {
     public static void main( String[] args )
     {
 
-        Generator generator = new Generator("test", "inputArr");
+        Generator generator = new Generator("src/file/test","test", "inputArr");
 
         generator.generateCode();
         generator.showInfo();

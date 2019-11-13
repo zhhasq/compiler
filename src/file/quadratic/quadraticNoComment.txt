@@ -1,7 +1,6 @@
  
 discriminant := b*b - 4*a*c; 
-if discriminant < 0 then 
-    
+if discriminant < 0 then
     roots := 0 
 else 
     

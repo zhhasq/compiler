@@ -37,7 +37,6 @@ public class ArithLeftAsso {
     }
 
 
-
     private static int countPar(Node root, int addPar) {
         if (root.jjtGetNumChildren() == 0) {
             return 0;

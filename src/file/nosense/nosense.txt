@@ -1,0 +1,71 @@
+{-
+	Useful inputs: a b c d
+	Output: count1 count2 count3 count4
+-}
+
+count1 := 0;
+count2 := 0;
+count3 := 0;
+count4 := 0;
+while (a > 0 or b > 0 or c > 0 or d > 0) do
+
+    count1 := count1 + 1;
+    while (not (1 * c + 2 * a < 1 * d + 2 * b) and true and (1 * d + 2 * a >= 1 * c + 2 * b) and count2 <= 1000) do
+        count2 :=  count2 + 1 * c + 2 * a + 1 * d + 2 * b;
+        if 6 + a + b * (d - (b + c * a - d)) - d > 0 then
+            count4 := count4 + 1
+        else
+            skip
+        fi
+    od;
+
+    flag := 0;
+    i := 0;
+    positive := count2;
+
+    if count2 < 0 then
+        positive := 0 - count2
+    else
+        skip
+    fi;
+
+    while (flag = 0 and i <= positive) do
+        if (i * 2 = positive) then
+            flag := 1
+        else
+            skip
+        fi;
+        i := i + 1
+    od;
+
+    if (flag = 1) then
+        tmp := 1 * d + 2 * c + 4 * b + 8 * d;
+        while (tmp > 0 and not(flag = 0)) do
+            tmp := tmp - 1;
+            count3 := count3 + tmp;
+            if not(count3 <= count4 or count1 <= count3 and true or not(true) ) then
+                count3 := count3 + count4
+            else
+                count3 := count3 - count4
+            fi
+        od
+    else
+        tmp := 1 * d + 2 * c + 4 * b + 8 * d;
+        while (tmp > 0 and not (flag = 1)) do
+            tmp := tmp - 1;
+            count3 := count3 + 2 * tmp
+        od
+    fi;
+    count2 := count2 - count3 - count4;
+    if (0 - count2 >= 2 * count3) then
+        count1 := count1 + (0 - count2)
+     else
+        count1 := count1 + count3 + count4 * count2
+    fi;
+    d := c;
+    c := b;
+    b := a;
+    a := 0
+od
+
+
