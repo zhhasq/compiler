@@ -32,7 +32,7 @@ public class DrawTree {
         }
 
         try {
-            Graphviz.fromGraph(g).width(2000).height(1500).render(Format.PNG).toFile(new File(file + ".png"));
+            Graphviz.fromGraph(g).width(4000).height(3000).render(Format.PNG).toFile(new File(file + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -44,7 +44,7 @@ public class DrawTree {
         while (!queue.isEmpty()) {
             Node cur = queue.pollFirst();
             nodeList.add(cur);
-            map.put(cur, mutNode(nodeID.toString()).add(Label.html(cur.toString())));
+            map.put(cur, mutNode(nodeID.toString()).add(Label.html(cur.toStringWithLabel())));
 
             int numChild = cur.jjtGetNumChildren();
             for (int i = 0; i < numChild; i++) {

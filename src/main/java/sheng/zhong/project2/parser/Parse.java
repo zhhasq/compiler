@@ -33,9 +33,7 @@ public class Parse {
             e.printStackTrace();
         }
 
-        //root.dump("");
-        DrawTree.draw(root, file );
-        //DrawTree.draw(root2, file + "origin");
+
 
         return root;
     }

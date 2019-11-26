@@ -16,6 +16,12 @@ public class Prime {
 
             generator.showAsseCode();
             generator.toFile();
+
+            generator.generateFlowGraph();
+            generator.showDataFlowEquations();
+            generator.calculateDataFlowEquations();
+            generator.showReachingDef();
+
         }
         System.out.println("range: [2 - 1]: " + countPrime(1));
         System.out.println("range: [2 - 2]: " + countPrime(2));

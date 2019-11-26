@@ -12,7 +12,9 @@ class ASTBNot extends SimpleNode {
     super(p, id);
   }
   public String toString() {
-    return "Not";
+
+      return "Not";
+
   }
 }
 /* JavaCC - OriginalChecksum=ebe256649e28785933c10023681b274d (do not edit this line) */

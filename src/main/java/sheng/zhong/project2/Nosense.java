@@ -14,6 +14,7 @@ public class Nosense {
 
             generator.showAsseCode();
             generator.toFile();
+            generator.generateFlowGraph();
         }
         noSense(1, 1, 1, 1);
         noSense(0, 1, 0, 1);

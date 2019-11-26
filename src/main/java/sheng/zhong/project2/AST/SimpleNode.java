@@ -10,7 +10,7 @@ class SimpleNode implements Node {
   protected int id;
   protected Object value;
   protected Sheng parser;
-  protected int label;
+  protected int label = -1;
 
   public SimpleNode(int i) {
     id = i;
@@ -61,6 +61,16 @@ class SimpleNode implements Node {
   public String toString() {
     return ShengTreeConstants.jjtNodeName[id];
   }
+
+  @Override
+  public String toStringWithLabel() {
+    if (label == -1) {
+      return toString();
+    } else {
+      return "{" + label + "}<br/>" + toString();
+    }
+  }
+
   public String toString(String prefix) { return prefix + toString(); }
 
   /* Override this method if you want to customize how the node dumps

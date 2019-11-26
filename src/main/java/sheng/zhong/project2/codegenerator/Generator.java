@@ -1,6 +1,10 @@
 package sheng.zhong.project2.codegenerator;
 
 import sheng.zhong.project2.AST.*;
+import sheng.zhong.project2.CFG.Block;
+import sheng.zhong.project2.CFG.DrawCFG;
+import sheng.zhong.project2.CFG.FlowGraph;
+import sheng.zhong.project2.CFG.ReachingDef;
 import sheng.zhong.project2.parser.Parse;
 import sheng.zhong.project2.parser.ParseExp;
 import sheng.zhong.project2.statckmachine.StackMachine;
@@ -46,6 +50,11 @@ public class Generator {
     String inputName;
     int label = 1;
     String path;
+
+    //fields for project3
+    public FlowGraph flowGraph;
+    public Map<ReachingDef, List<ReachingDef>> dataFlowEquations;
+
     public Generator(String path, String file, String inputName) {
         //argument refers to the inputs of the while language.
         //input refers to the c language;
@@ -193,7 +202,7 @@ public class Generator {
             generateCodeCommands(node.jjtGetChild(1));
 
             code.add("#while condition: " + NodeUtils.expToString(node.jjtGetChild(0)));
-            code.add("  #label: " + node.getLabel());
+            code.add("  #label: " + node.jjtGetChild(0).getLabel());
             code.add(AsseCodeFactory.addLable(tmpLabel1));
             code.addAll(expCodeMap.get(node.jjtGetChild(0)));
 
@@ -207,7 +216,7 @@ public class Generator {
 
             //boolean expression
             code.add("#IF condition: " + NodeUtils.expToString(node.jjtGetChild(0)));
-            code.add("  #label: " + node.getLabel());
+            code.add("  #label: " + node.jjtGetChild(0).getLabel());
 
             code.addAll(expCodeMap.get(node.jjtGetChild(0)));
             //branch if condition not met
@@ -285,6 +294,10 @@ public class Generator {
 
     }
     public void toFile() {
+        //root.dump("");
+        DrawTree.draw(root, path + "/" + file);
+        //DrawTree.draw(root2, file + "origin");
+
         try{
            // File outputFile =new File("src/file/" + file + "/" + file + ".s");
 
@@ -371,5 +384,102 @@ public class Generator {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void generateFlowGraph() {
+        this.flowGraph = new FlowGraph(this.root);
+        flowGraph.generateFlowGraph();
+        DrawCFG.draw(flowGraph.blockMap, flowGraph.start, path + "/" + file);
+    }
+
+//    public void generateDataFlowEquations() {
+//        this.dataFlowEquations = new HashMap<>();
+//        Map<Integer, Block> blockMap = flowGraph.blockMap;
+//        int numBlocks = blockMap.size() - 2; //start and end doesn't count
+//        for (int i = 0; i < numBlocks; i++) {
+//            Block cur = blockMap.get(i);
+//            List<ReachingDef> tmp = new ArrayList<>();
+//            for (Block preBlock : cur.getPre()) {
+//                tmp.add(preBlock.reachingDefExit);
+//            }
+//            dataFlowEquations.put(cur.reachingDefIn, tmp);
+//        }
+//    }
+
+    public void showDataFlowEquations() {
+        System.out.println("-------- Data flow equations:");
+
+        this.dataFlowEquations = new HashMap<>();
+        Map<Integer, Block> blockMap = flowGraph.blockMap;
+        int numBlocks = blockMap.size() - 2; //start and end doesn't count
+        for (int i = 0; i < numBlocks; i++) {
+            Block cur = blockMap.get(i);
+            List<ReachingDef> tmp = new ArrayList<>();
+            for (Block preBlock : cur.getPre()) {
+                tmp.add(preBlock.reachingDefExit);
+            }
+            dataFlowEquations.put(cur.reachingDefIn, tmp);
+            //print out
+            System.out.print(cur.reachingDefIn + " = ");
+            for (int j = 0; j < tmp.size(); j++) {
+                if (j != 0) {
+                    System.out.print(" U " + tmp.get(j));
+                } else {
+                    System.out.print(tmp.get(j));
+                }
+            }
+            System.out.println();
+            System.out.println(cur.ToStringRDOut());
+        }
+    }
+
+    public void calculateDataFlowEquations() {
+        Map<Integer, Block> blockMap = flowGraph.blockMap;
+        //first init the start block which will initialize all the variables
+        Block startBlock = blockMap.get(-1);
+        for (String var : vars) {
+            startBlock.reachingDefIn.add(var, -1);
+        }
+        startBlock.calculateExitRD();
+
+        int numBlocks = blockMap.size() - 2; //start and end doesn't count
+        boolean isChanged = true;
+        while (isChanged) {
+            isChanged = false;
+            for (int i = 0; i < numBlocks; i++) {
+                Block cur = blockMap.get(i);
+                //first calculate in
+                List<ReachingDef> tmp = dataFlowEquations.get(cur.reachingDefIn);
+                if (mergeReachingDef(cur.reachingDefIn, tmp)) {
+                    isChanged = true;
+                }
+                //calculate out
+                cur.calculateExitRD();
+            }
+        }
+    }
+
+    public void showReachingDef() {
+        System.out.println("******** Reaching Definition result:");
+        Map<Integer, Block> blockMap = this.flowGraph.blockMap;
+        int numBlocks = blockMap.size() - 2; //start and end doesn't count
+
+        for (int i = 0; i < numBlocks; i++) {
+            System.out.println(blockMap.get(i).reachingDefIn.toStringWithSet());
+            System.out.println(blockMap.get(i).reachingDefExit.toStringWithSet());
+        }
+    }
+
+    public boolean mergeReachingDef(ReachingDef dst, List<ReachingDef> source) {
+        boolean result = false;
+        if (source != null) {
+            for (ReachingDef rd : source) {
+                if (dst.add(rd)) {
+                    result = true;
+                }
+            }
+        }
+
+        return result;
     }
 }

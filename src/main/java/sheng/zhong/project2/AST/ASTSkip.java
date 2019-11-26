@@ -12,7 +12,7 @@ class ASTSkip extends SimpleNode {
     super(p, id);
   }
   public String toString() {
-    return label + " Skip";
+    return "Skip";
   }
 }
 /* JavaCC - OriginalChecksum=ba9f58f2f4fc85bfae3b4fad8e14ae30 (do not edit this line) */

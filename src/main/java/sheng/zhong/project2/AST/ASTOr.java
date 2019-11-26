@@ -12,7 +12,9 @@ class ASTOr extends SimpleNode {
     super(p, id);
   }
   public String toString() {
-    return "or";
+
+      return "or";
+
   }
 }
 /* JavaCC - OriginalChecksum=49ea1dbf9ad9d210ff317b20215be8ed (do not edit this line) */

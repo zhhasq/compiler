@@ -16,6 +16,7 @@ public class Sort {
 
             generator.showAsseCode();
             generator.toFile();
+            generator.generateFlowGraph();
         }
 
     }

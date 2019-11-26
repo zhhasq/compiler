@@ -1,0 +1,42 @@
+a := b;
+while a > b do
+
+    while b > c do
+        b := 3;
+        while c < 3 do
+            a := 1
+        od;
+        c := 23
+    od;
+    a := c;
+    b := c
+od;
+c := b;
+while c < a do
+    a := b - c;
+    if a > 111 then
+        b := 1;
+        if c > 22 then
+            c := 1
+        else
+            c := 0;
+             while c < 3 do
+                a := 1
+            od;
+            if b = 99 then
+                a := 333;
+                while a = 333 do
+                    m := 1
+                od
+            else
+              skip
+            fi
+        fi
+    else
+        b := 0
+
+    fi
+od;
+a := b + c
+
+

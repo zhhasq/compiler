@@ -12,7 +12,7 @@ class ASTWhile extends SimpleNode {
     super(p, id);
   }
   public String toString() {
-    return label + " While";
+    return "While";
   }
 }
 /* JavaCC - OriginalChecksum=ee956a1b0f4a5818ff3f2a46e94d9a13 (do not edit this line) */

@@ -14,6 +14,9 @@ public class NodeIDMap {
         }
         return nodeIdMap;
     }
+    public static boolean isCondition(Node node) {
+        return isIf(node) || isWhile(node);
+    }
     public static boolean isExp(Node node) {
         return isBoolExp(node) || isAriExp(node);
     }

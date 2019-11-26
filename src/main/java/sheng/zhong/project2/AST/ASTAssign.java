@@ -12,7 +12,7 @@ class ASTAssign extends SimpleNode {
     super(p, id);
   }
   public String toString() {
-    return label + " Assign";
+    return "Assign";
   }
 
 }

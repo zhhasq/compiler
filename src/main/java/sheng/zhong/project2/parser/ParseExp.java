@@ -3,6 +3,7 @@ package sheng.zhong.project2.parser;
 import sheng.zhong.project2.AST.Node;
 import sheng.zhong.project2.AST.NodeIDMap;
 import sheng.zhong.project2.AST.NodeUtils;
+import sheng.zhong.project2.AST.SimpleNode;
 import sheng.zhong.project2.statckmachine.CodeTuple;
 import sheng.zhong.project2.statckmachine.StackMachine;
 import sheng.zhong.project2.statckmachine.StackMachineCode;
@@ -42,6 +43,13 @@ public class ParseExp {
             return;
         }
         if (NodeIDMap.isExp(root)) {
+            //swap label
+            if (NodeIDMap.isBoolExp(root)) {
+                SimpleNode tmp = (SimpleNode) root;
+                SimpleNode parent = (SimpleNode) root.jjtGetParent();
+                tmp.setLabel(parent.getLabel());
+                parent.setLabel(-1);
+            }
             result.add(root);
             return;
         }

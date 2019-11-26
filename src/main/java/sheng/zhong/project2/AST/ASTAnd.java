@@ -12,5 +12,9 @@ class ASTAnd extends SimpleNode {
     super(p, id);
   }
 
+  @Override
+  public String toString() {
+      return "And";
+  }
 }
 /* JavaCC - OriginalChecksum=661159d485d5f72c388e6cca7e1fcc2e (do not edit this line) */

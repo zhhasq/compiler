@@ -17,7 +17,7 @@ class ASTRelation extends SimpleNode {
   }
   public String toString() {
     if (operator.equals("<")) {
-      return "Less";
+      return "Less" ;
     } else if (operator.equals(">")) {
       return "Gre";
     } else if (operator.equals(">=")) {
@@ -25,6 +25,7 @@ class ASTRelation extends SimpleNode {
     } else if (operator.equals("<=")) {
       return "Less=";
     }
+    // relation is =
     return operator;
   }
 }

@@ -23,6 +23,7 @@ nop
 nop
 nop
 #IF condition: (a Less= 0 ) 
+  #label: 0
   ld    t0,-32(s0)
   sd    t0,-16(s0)
   li    t0,0
@@ -34,15 +35,18 @@ nop
   beqz  t0,.L2
 #Things to do when IF condition: (a Less= 0 )  is met
   #b := 0 
+  #label: 1
   li    t0,0
   sd    t0,-40(s0)
   j     .L3
 #Things to do when IF condition: (a Less= 0 )  is Not met
 .L2:
+  #label: 2
 nop
 #code after if (a Less= 0 ) 
 .L3:
 #IF condition: (a Gre= 1 ) 
+  #label: 3
   ld    t0,-32(s0)
   sd    t0,-16(s0)
   li    t0,1
@@ -54,21 +58,25 @@ nop
   beqz  t0,.L4
 #Things to do when IF condition: (a Gre= 1 )  is met
   #b := 1 
+  #label: 4
   li    t0,1
   sd    t0,-40(s0)
   j     .L5
 #Things to do when IF condition: (a Gre= 1 )  is Not met
 .L4:
+  #label: 5
 nop
 #code after if (a Gre= 1 ) 
 .L5:
   #tmp1 := 0 
+  #label: 6
   li    t0,0
   sd    t0,-56(s0)
   j     .L6
 #code for while condition (a Gre 1 )  met: 
 .L7:
   #sum := (tmp1 + b ) 
+  #label: 8
   ld    t0,-56(s0)
   sd    t0,-16(s0)
   ld    t0,-40(s0)
@@ -76,12 +84,15 @@ nop
   add   t0,t0,t1
   sd    t0,-48(s0)
   #tmp1 := b 
+  #label: 9
   ld    t0,-40(s0)
   sd    t0,-56(s0)
   #b := sum 
+  #label: 10
   ld    t0,-48(s0)
   sd    t0,-40(s0)
   #a := (a - 1 ) 
+  #label: 11
   ld    t0,-32(s0)
   sd    t0,-16(s0)
   li    t0,1
@@ -89,6 +100,7 @@ nop
   sub   t0,t1,t0
   sd    t0,-32(s0)
 #while condition: (a Gre 1 ) 
+  #label: 7
 .L6:
   ld    t0,-32(s0)
   sd    t0,-16(s0)

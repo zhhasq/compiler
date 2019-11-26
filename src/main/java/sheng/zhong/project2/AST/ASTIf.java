@@ -12,7 +12,7 @@ class ASTIf extends SimpleNode {
     super(p, id);
   }
   public String toString() {
-    return label + " If";
+    return "If";
   }
 }
 /* JavaCC - OriginalChecksum=98ad01d9c1625aa7e6d0aa67226c21ba (do not edit this line) */

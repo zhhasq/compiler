@@ -27,24 +27,29 @@ nop
 nop
 nop
   #n := input 
+  #label: 0
   ld    t0,-40(s0)
   sd    t0,-72(s0)
   #steps := 0 
+  #label: 1
   li    t0,0
   sd    t0,-64(s0)
   j     .L2
 #code for while condition (n Gre 1 )  met: 
 .L3:
   #rem := n 
+  #label: 3
   ld    t0,-72(s0)
   sd    t0,-48(s0)
   #quot := 0 
+  #label: 4
   li    t0,0
   sd    t0,-56(s0)
   j     .L4
 #code for while condition (rem Gre 1 )  met: 
 .L5:
   #rem := (rem - 2 ) 
+  #label: 6
   ld    t0,-48(s0)
   sd    t0,-16(s0)
   li    t0,2
@@ -52,6 +57,7 @@ nop
   sub   t0,t1,t0
   sd    t0,-48(s0)
   #quot := (quot + 1 ) 
+  #label: 7
   ld    t0,-56(s0)
   sd    t0,-16(s0)
   li    t0,1
@@ -59,6 +65,7 @@ nop
   add   t0,t0,t1
   sd    t0,-56(s0)
 #while condition: (rem Gre 1 ) 
+  #label: 5
 .L4:
   ld    t0,-48(s0)
   sd    t0,-16(s0)
@@ -69,6 +76,7 @@ nop
   bnez  t0,.L5
 #code for while condition (rem Gre 1 )  not met: 
 #IF condition: (rem = 0 ) 
+  #label: 8
   ld    t0,-48(s0)
   sd    t0,-16(s0)
   li    t0,0
@@ -79,12 +87,14 @@ nop
   beqz  t0,.L6
 #Things to do when IF condition: (rem = 0 )  is met
   #n := quot 
+  #label: 9
   ld    t0,-56(s0)
   sd    t0,-72(s0)
   j     .L7
 #Things to do when IF condition: (rem = 0 )  is Not met
 .L6:
   #n := ((3 * n ) + 1 ) 
+  #label: 10
   li    t0,3
   sd    t0,-16(s0)
   ld    t0,-72(s0)
@@ -98,6 +108,7 @@ nop
 #code after if (rem = 0 ) 
 .L7:
   #steps := (steps + 1 ) 
+  #label: 11
   ld    t0,-64(s0)
   sd    t0,-16(s0)
   li    t0,1
@@ -105,6 +116,7 @@ nop
   add   t0,t0,t1
   sd    t0,-64(s0)
 #while condition: (n Gre 1 ) 
+  #label: 2
 .L2:
   ld    t0,-72(s0)
   sd    t0,-16(s0)
@@ -115,6 +127,7 @@ nop
   bnez  t0,.L3
 #code for while condition (n Gre 1 )  not met: 
   #output := steps 
+  #label: 12
   ld    t0,-64(s0)
   sd    t0,-32(s0)
 nop

@@ -1,0 +1,39 @@
+if a = 0 then 
+    if b = 0 then 
+        d := 0; 
+        if k = 0 then 
+            while loop1 > 0 do 
+                loop1 := 11 
+            od 
+        else 
+            skip 
+        fi 
+    else 
+        d := 1; 
+        while loop2 > 0 do 
+            if f = 0 then 
+                skip 
+            else 
+                skip 
+            fi 
+        od 
+    fi 
+else 
+    while loop3 > 0 do 
+        if c = 0 then 
+            d := 2; 
+            if q = 0 then 
+                skip 
+            else 
+                skip 
+            fi 
+        else 
+            d := 3; 
+            if p = 0 then 
+              skip 
+            else 
+                skip 
+            fi 
+        fi 
+    od 
+fi 
