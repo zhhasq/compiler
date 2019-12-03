@@ -27,8 +27,8 @@ hs_err_pid*
 .idea
 *.iml
 /.idea/vcs.xml
-target/*
-out/*
+/target
+/out/
 test/
 
 
