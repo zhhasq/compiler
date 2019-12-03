@@ -3,7 +3,7 @@ package sheng.zhong.project2.CFG;
 import java.util.*;
 
 public class ReachingDef {
-    Map<String, Set<Integer>> set;
+    public Map<String, Set<Integer>> set;
     public int label;
     public boolean isIn;
 

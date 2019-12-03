@@ -39,9 +39,16 @@ public class ParseExp {
         if (root.jjtGetNumChildren() == 0) {
             if (NodeIDMap.isExp(root)) {
                 result.add(root);
+                if (NodeIDMap.isBoolExp(root)) {
+                    SimpleNode tmp = (SimpleNode) root;
+                    SimpleNode parent = (SimpleNode) root.jjtGetParent();
+                    tmp.setLabel(parent.getLabel());
+                    parent.setLabel(-1);
+                }
             }
             return;
         }
+
         if (NodeIDMap.isExp(root)) {
             //swap label
             if (NodeIDMap.isBoolExp(root)) {
@@ -53,6 +60,7 @@ public class ParseExp {
             result.add(root);
             return;
         }
+
         int childNum = root.jjtGetNumChildren();
         if (NodeIDMap.isAssign(root)) {
             for (int i = 1; i < childNum; i++) {

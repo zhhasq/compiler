@@ -16,7 +16,6 @@ public class Collatz {
 
             generator.showAsseCode();
             generator.toFile();
-            generator.generateFlowGraph();
         }
         System.out.println("for input 0: " + collatz(0));
         System.out.println("for input 1: " + collatz(1));

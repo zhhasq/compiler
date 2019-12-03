@@ -67,7 +67,7 @@ public class DrawCFG {
          Deque<Block> queue = new ArrayDeque<>();
          queue.offerLast(root);
          visited.add(root);
-        blockMap.put(root.label, root);
+         blockMap.put(root.label, root);
 
          while(!queue.isEmpty()) {
              Block cur = queue.pollFirst();

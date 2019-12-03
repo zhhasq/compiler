@@ -1,6 +1,7 @@
 package sheng.zhong.project2;
 
 import sheng.zhong.project2.codegenerator.Generator;
+import sheng.zhong.project2.codegenerator.Optimizer;
 
 import java.util.Arrays;
 
@@ -17,11 +18,14 @@ public class Prime {
             generator.showAsseCode();
             generator.toFile();
 
-            generator.generateFlowGraph();
-            generator.showDataFlowEquations();
-            generator.calculateDataFlowEquations();
-            generator.showReachingDef();
-
+            Optimizer optimizer = new Optimizer(generator);
+            optimizer.generateFlowGraph();
+            optimizer.showDataFlowEquations();
+            optimizer.calculateDataFlowEquations();
+            optimizer.showReachingDef();
+            optimizer.constantFolding();
+            optimizer.checkBlockVars();
+            optimizer.drawNewAst();
         }
         System.out.println("range: [2 - 1]: " + countPrime(1));
         System.out.println("range: [2 - 2]: " + countPrime(2));

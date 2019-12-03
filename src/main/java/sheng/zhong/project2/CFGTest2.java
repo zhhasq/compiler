@@ -23,10 +23,7 @@ public class CFGTest2 {
         generator.showAsseCode();
         generator.toFile();
 
-        generator.generateFlowGraph();
-        generator.showDataFlowEquations();
-        generator.calculateDataFlowEquations();
-        generator.showReachingDef();
+
 
     }
 }

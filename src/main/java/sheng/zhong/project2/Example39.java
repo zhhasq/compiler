@@ -14,7 +14,6 @@ public class Example39 {
 
             generator.showAsseCode();
             generator.toFile();
-            generator.generateFlowGraph();
         }
     }
 }

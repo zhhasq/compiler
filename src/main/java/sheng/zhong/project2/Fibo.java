@@ -17,7 +17,6 @@ public class Fibo {
 
             generator.showAsseCode();
             generator.toFile();
-            generator.generateFlowGraph();
         }
         System.out.println("0 th fibonacci number is " + fibonacci(0));
         System.out.println("1 th fibonacci number is " + fibonacci(1));

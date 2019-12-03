@@ -1,0 +1,11 @@
+a := 10; 
+b := 20; 
+c := a + m + n + x + y + b; 
+d := a - (a + b * c) * a - b; 
+while d > a - b + 3 do 
+    if a * (a + b) > c + d then 
+        skip 
+    else 
+        a := 3 
+    fi 
+od 
