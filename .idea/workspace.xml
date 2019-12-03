@@ -7,36 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ded35796-bf8d-4af3-aac5-47cb9cb842d3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/file/consFoldingTest/consFoldingTest.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFG/BlockUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/ConsFoldingTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/codegenerator/Optimizer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFG/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFG/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFG/DrawCFG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFG/DrawCFG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFG/ReachingDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFG/ReachingDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFGTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFGTest2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Collatz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Collatz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Example33.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Example33.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Example39.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Example39.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Fibo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Fibo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Nosense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Nosense.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Prime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Prime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Sort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Sort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/codegenerator/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/codegenerator/Generator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/parser/ParseExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/parser/ParseExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/CFG/Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/CFG/Block.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/CFG/ReachingDef.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/CFG/ReachingDef.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/CFGTest2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/CFGTest2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Collatz.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Collatz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Example33.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Example33.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Example39.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Example39.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Fibo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Fibo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Nosense.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Nosense.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Prime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Prime.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Sort.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Sort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/codegenerator/Generator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/codegenerator/Generator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/parser/ParseExp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/parser/ParseExp.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,13 +42,14 @@
   <component name="ProjectId" id="1SV2dBzReoCwDjiAkk4VZzKr624" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="add_unversioned_files" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
