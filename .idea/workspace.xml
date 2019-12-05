@@ -7,22 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ded35796-bf8d-4af3-aac5-47cb9cb842d3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/file/nosense/nosense.s" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/nosense/nosense.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTAssign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTAssign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTIf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTIf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTSkip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTSkip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTWhile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/ASTWhile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/SimpleNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/SimpleNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/codegenerator/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/codegenerator/Generator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTAssign.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTAssign.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTIf.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTIf.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTSkip.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTSkip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTWhile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/ASTWhile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/SimpleNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/SimpleNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/codegenerator/Generator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/codegenerator/Generator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/file/example33/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
