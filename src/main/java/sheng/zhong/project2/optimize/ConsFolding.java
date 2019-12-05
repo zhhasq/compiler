@@ -1,128 +1,23 @@
-package sheng.zhong.project2.codegenerator;
+package sheng.zhong.project2.optimize;
 
 import sheng.zhong.project2.AST.*;
-import sheng.zhong.project2.CFG.*;
+import sheng.zhong.project2.CFG.Block;
+import sheng.zhong.project2.CFG.BlockUtils;
+import sheng.zhong.project2.CFG.FlowGraph;
+import sheng.zhong.project2.CFG.ReachingDef;
 
 import java.util.*;
 
-public class Optimizer {
-    Generator slowGenerator;
-    //fields for project3
-    public FlowGraph flowGraph;
-    public Map<ReachingDef, List<ReachingDef>> dataFlowEquations;
+public class ConsFolding {
 
-
-    public Optimizer(Generator slowGenerator) {
-        this.slowGenerator = slowGenerator;
-    }
-
-    public void generateFlowGraph() {
-        this.flowGraph = new FlowGraph(this.slowGenerator.root);
-        flowGraph.generateFlowGraph();
-        DrawCFG.draw(flowGraph.blockMap, flowGraph.start, slowGenerator.path + "/" + slowGenerator.file);
-    }
-
-//    public void generateDataFlowEquations() {
-//        this.dataFlowEquations = new HashMap<>();
-//        Map<Integer, Block> blockMap = flowGraph.blockMap;
-//        int numBlocks = blockMap.size() - 2; //start and end doesn't count
-//        for (int i = 0; i < numBlocks; i++) {
-//            Block cur = blockMap.get(i);
-//            List<ReachingDef> tmp = new ArrayList<>();
-//            for (Block preBlock : cur.getPre()) {
-//                tmp.add(preBlock.reachingDefExit);
-//            }
-//            dataFlowEquations.put(cur.reachingDefIn, tmp);
-//        }
-//    }
-
-    public void showDataFlowEquations() {
-        System.out.println("-------- Data flow equations:");
-
-        this.dataFlowEquations = new HashMap<>();
-        Map<Integer, Block> blockMap = flowGraph.blockMap;
-        int numBlocks = blockMap.size() - 2; //start and end doesn't count
-        for (int i = 0; i < numBlocks; i++) {
-            Block cur = blockMap.get(i);
-            List<ReachingDef> tmp = new ArrayList<>();
-            for (Block preBlock : cur.getPre()) {
-                tmp.add(preBlock.reachingDefExit);
-            }
-            dataFlowEquations.put(cur.reachingDefIn, tmp);
-            //print out
-            System.out.print(cur.reachingDefIn + " = ");
-            for (int j = 0; j < tmp.size(); j++) {
-                if (j != 0) {
-                    System.out.print(" U " + tmp.get(j));
-                } else {
-                    System.out.print(tmp.get(j));
-                }
-            }
-            System.out.println();
-            System.out.println(cur.ToStringRDOut());
-        }
-    }
-
-    public void calculateDataFlowEquations() {
-        Map<Integer, Block> blockMap = flowGraph.blockMap;
-        //first init the start block which will initialize all the variables
-        Block startBlock = blockMap.get(-1);
-        for (String var : slowGenerator.vars) {
-            startBlock.reachingDefIn.add(var, -1);
-        }
-        startBlock.calculateExitRD();
-
-        int numBlocks = blockMap.size() - 2; //start and end doesn't count
-        boolean isChanged = true;
-        while (isChanged) {
-            isChanged = false;
-            for (int i = 0; i < numBlocks; i++) {
-                Block cur = blockMap.get(i);
-                //first calculate in
-                List<ReachingDef> tmp = dataFlowEquations.get(cur.reachingDefIn);
-                if (mergeReachingDef(cur.reachingDefIn, tmp)) {
-                    isChanged = true;
-                }
-                //calculate out
-                cur.calculateExitRD();
-            }
-        }
-    }
-
-    public void showReachingDef() {
-        System.out.println("******** Reaching Definition result:");
-        Map<Integer, Block> blockMap = this.flowGraph.blockMap;
-        int numBlocks = blockMap.size() - 2; //start and end doesn't count
-
-        for (int i = 0; i < numBlocks; i++) {
-            System.out.println(blockMap.get(i).reachingDefIn.toStringWithSet());
-            System.out.println(blockMap.get(i).reachingDefExit.toStringWithSet());
-        }
-    }
-
-    public boolean mergeReachingDef(ReachingDef dst, List<ReachingDef> source) {
-        boolean result = false;
-        if (source != null) {
-            for (ReachingDef rd : source) {
-                if (dst.add(rd)) {
-                    result = true;
-                }
-            }
-        }
-
-        return result;
-    }
-
-    public void constantFolding() {
+    public static void constantFolding(FlowGraph flowGraph) {
         //note: this method can only be called after solve the RD equations.
         //will modify the AST from slowGenerator;
         //need the solution of RD
-
-
         Map<Integer, Integer> isLabelCons = new HashMap<>();
-        findConsLabel(this.flowGraph, isLabelCons);
+        findConsLabel(flowGraph, isLabelCons);
         //1. first find vars for all blocks
-        extractVar(this.flowGraph);
+        extractVar(flowGraph);
 
         boolean stop = false;
         int numLabel = flowGraph.blockMap.size() - 2;
@@ -148,40 +43,37 @@ public class Optimizer {
                         stop = false;
                     }
                 }
+                //remove the vars that been replaced from the block varsNodeMap
                 for (String replacedVar : replaced) {
                     curBlock.varsNodeMap.remove(replacedVar);
                 }
+
                 //3. merge some sub-expression in arith exp
                 if (BlockUtils.isAssign(curBlock)) {
                     Node tmp = mergeArithExp(curBlock.node.jjtGetChild(1), false, curBlock);
                     if (tmp != null) {
                         stop = false;
-                        if (NodeIDMap.isInt(curBlock.node.jjtGetChild(1))) {
-                            if (isLabelCons.get(curBlock.label) == null) {
-                                isLabelCons.put(curBlock.label, Integer.valueOf(curBlock.node.jjtGetChild(1).toString()));
-                            }
-                        }
                     }
                 } else if (BlockUtils.isCondition(curBlock)) {
-                    for (Node curArithNode : curBlock.arithNodes) {
-                        Node tmp = mergeArithExp(curArithNode,true, curBlock);
+                    HashSet<Node> arithNodesCopy = (HashSet<Node>) ((HashSet) curBlock.arithNodes).clone();
+                    for (Node curArithNode : arithNodesCopy) {
+                        Node tmp = mergeArithExp(curArithNode, true, curBlock);
                         if (tmp != null) {
                             stop = false;
                         }
                     }
                 }
-
-                    //3.1 if assign, no vars on r h s and this label is not in isLabelCons
-//                    if (BlockUtils.isAssign(curBlock) && curBlock.varsNodeMap.size() == 0 && isLabelCons.get(curBlock.label) == null) {
-//
-//                    }
-                    //3.2 boolean exp has arith exp and no vars.
-
+                //update isConsLabel
+                if (BlockUtils.isAssign(curBlock) && NodeIDMap.isInt(curBlock.node.jjtGetChild(1))) {
+                    if (isLabelCons.get(curBlock.label) == null) {
+                        isLabelCons.put(curBlock.label, Integer.valueOf(curBlock.node.jjtGetChild(1).toString()));
+                    }
+                }
             }
         }
     }
 
-    public static Node mergeArithExp(Node arithNode, boolean isConditionBlock, Block curBlock) {
+    private static Node mergeArithExp(Node arithNode, boolean isConditionBlock, Block curBlock) {
         //iterate all the node, if it is operator and both child are int then merge.
         //else return null
         if (NodeIDMap.isInt(arithNode) || NodeIDMap.isID(arithNode)) {
@@ -217,20 +109,21 @@ public class Optimizer {
         }
     }
 
-    public static void replaceNode(Node replaced, Node newNode) {
+    private static void replaceNode(Node replaced, Node newNode) {
 
         SimpleNode par = (SimpleNode) replaced.jjtGetParent();
         newNode.jjtSetParent(par);
         for (int j = 0; j < par.jjtGetNumChildren(); j++) {
             if (replaced == par.jjtGetChild(j)) {
                 par.setChildren(j, newNode);
+                newNode.setLabel(replaced.getLabel());
                 break;
             }
         }
     }
 
 
-    public static Integer canReplaced(String var, ReachingDef rdIn, Map<Integer, Integer> consLabel) {
+    private static Integer canReplaced(String var, ReachingDef rdIn, Map<Integer, Integer> consLabel) {
         Set<Integer> labels = rdIn.set.get(var);
         if (labels == null || labels.isEmpty()) {
             //error
@@ -238,8 +131,33 @@ public class Optimizer {
             System.out.println("at label " + rdIn.label + var + "is not defined");
             return null;
         } else if (labels.size() > 1){
+            List<Integer> tmp = new ArrayList<>();
+            Integer constant = null;
+            for (Integer label : labels) {
+                if (consLabel.get(label) != null || label == -1) {
+                    return null;
+                } else {
+                    tmp.add(consLabel.get(label));
+                }
+            }
+            if (tmp.size() == labels.size()) {
+                boolean same = false;
+                Integer pre = tmp.get(0);
+                for (int i = 1; i < tmp.size(); i++) {
+                    Integer cur = tmp.get(i);
+                    if (cur != pre) {
+                        same = false;
+                        break;
+                    }
+                    pre = cur;
+                }
+                if (same) {
+                    return tmp.get(0);
+                }
+            }
             return null;
         } else {
+            //labels.size() == 1
             for (Integer label : labels) {
                 Integer constant = consLabel.get(label);
                 if (constant != null && constant != -1) {
@@ -250,7 +168,7 @@ public class Optimizer {
         }
     }
 
-    public static void extractVar(FlowGraph flowGraph) {
+    private static void extractVar(FlowGraph flowGraph) {
         Map<Integer, Block> blockMap = flowGraph.blockMap;
         int numLabel = flowGraph.blockMap.size() - 2;
         for (int i = 0; i < numLabel; i++) {
@@ -265,7 +183,7 @@ public class Optimizer {
         }
     }
 
-    public static void findArith(Block block) {
+    private static void findArith(Block block) {
         findArithPreOrder(block.arithNodes, block.node);
     }
 
@@ -286,7 +204,7 @@ public class Optimizer {
         }
     }
 
-    public static void preOreder(Map<String, List<Node>> varsNodeMap, Node curNode) {
+    private static void preOreder(Map<String, List<Node>> varsNodeMap, Node curNode) {
         if (curNode.jjtGetNumChildren() == 0) {
             if (NodeIDMap.isID(curNode)) {
                 List<Node> tmpList = varsNodeMap.get(curNode.toString());
@@ -315,7 +233,7 @@ public class Optimizer {
         }
     }
 
-    public static void findConsLabel(FlowGraph flowGraph, Map<Integer, Integer> isLabelCons) {
+    private static void findConsLabel(FlowGraph flowGraph, Map<Integer, Integer> isLabelCons) {
         Map<Integer, Block> blockMap = flowGraph.blockMap;
         for (Map.Entry<Integer, Block> entry : blockMap.entrySet()) {
             Block curBlock = entry.getValue();
@@ -324,6 +242,7 @@ public class Optimizer {
             } else {
                 Node curNode = curBlock.node;
                 if (NodeIDMap.isAssign(curNode)) {
+                    curBlock.lhsVar = curNode.jjtGetChild(0).toString();
                     if (isArithExpCons(curNode.jjtGetChild(1))) {
                         isLabelCons.put(curBlock.label, Integer.valueOf(curNode.jjtGetChild(1).toString()));
                     } else {
@@ -334,18 +253,11 @@ public class Optimizer {
         }
     }
 
-    public static boolean isArithExpCons(Node arithExpNode) {
+    private static boolean isArithExpCons(Node arithExpNode) {
         return NodeIDMap.isInt(arithExpNode);
     }
 
-    public void checkBlockVars() {
-        Map<Integer, Block> blockMap = flowGraph.blockMap;
-        int size = blockMap.size() - 2;
-        for (int i = 0; i < size; i++) {
-            System.out.println("label: " + i + "--" + blockMap.get(i).checkVars());
-        }
-    }
-    public void drawNewAst() {
-        DrawTree.draw(this.slowGenerator.root, this.slowGenerator.path + "/" + "newAST" + slowGenerator.file);
-    }
+
+
+
 }

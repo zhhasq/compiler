@@ -39,7 +39,7 @@ public class Generator {
     Map<Node, List<String>> expCodeMap;
     List<String> argumentList;
     Integer numInput;
-    Set<String> vars;   //for local variable
+    public Set<String> vars;   //for local variable
     Map<String, Integer> varsMap;
     Integer varsOffset; //with respect to s0.
     Integer inputOffset;
@@ -49,8 +49,10 @@ public class Generator {
     Map<String, Integer> argumentMapArray;
     String inputName;
     int label = 1;
-    String path;
+    public String path;
 
+    //for liveness analysis
+    public Set<String> output = new HashSet<>();
 
 
     public Generator(String path, String file, String inputName) {
@@ -71,6 +73,27 @@ public class Generator {
         varsMap = new HashMap<>();
         argumentMapArray = new HashMap<>();
         this.path = path;
+    }
+
+    public Generator(String path, String file, String inputName, List<String> output) {
+        //argument refers to the inputs of the while language.
+        //input refers to the c language;
+        code = new ArrayList<>();
+        vars = new HashSet<>();
+        expStackMachineMap = new HashMap<>();
+        this.file = file;
+        this.calleeRegMap = new HashMap<>();
+        calleeReg = new HashSet<>();
+        calleeReg.add(Register.s0);
+        expCodeMap = new HashMap<>();
+        //this.argumentList = argumentList;
+        numInput = 1;  //only pass in the array
+        this.inputMap = new HashMap<>();
+        this.inputName = inputName;
+        varsMap = new HashMap<>();
+        argumentMapArray = new HashMap<>();
+        this.path = path;
+        this.output.addAll(output);
     }
 
     public void init() {

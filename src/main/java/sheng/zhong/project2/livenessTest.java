@@ -3,9 +3,11 @@ package sheng.zhong.project2;
 import sheng.zhong.project2.codegenerator.Generator;
 import sheng.zhong.project2.optimize.Optimizer;
 
-public class ConsFoldingTest {
+import java.util.Arrays;
+
+public class livenessTest {
     public static void main(String[] args) {
-        Generator generator = new Generator("src/file/consFoldingTest" ,"consFoldingTest", "inputArr");
+        Generator generator = new Generator("src/file/livenessTest" ,"livenessTest", "inputArr", Arrays.asList(new String[]{"c"}));
 
         generator.generateCode();
         generator.showInfo();
@@ -17,18 +19,19 @@ public class ConsFoldingTest {
 
         Optimizer optimizer = new Optimizer(generator);
         optimizer.generateFlowGraph();
-
         optimizer.showDataFlowEquations();
         optimizer.showReachingDefSet();
 
         optimizer.runConsFolding();
         optimizer.checkBlockVars();
-
         optimizer.drawNewAst();
-        optimizer.generateNewFlowGraph();
 
         optimizer.runLivenessAnalysis();
         optimizer.showLiveResult();
-    }
 
+        optimizer.generateNewFlowGraph();
+
+        optimizer.generateRIG();
+        optimizer.solveColor();
+    }
 }

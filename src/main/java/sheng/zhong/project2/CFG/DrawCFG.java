@@ -17,7 +17,7 @@ import java.util.*;
 import static guru.nidi.graphviz.model.Factory.*;
 
 public class DrawCFG {
-    public static void draw(Map<Integer, Block> blockMap, Block root, String file) {
+    public static void draw(Map<Integer, Block> blockMap, Block root, String file, boolean liveSet) {
         HashMap<Block, MutableNode> map = new HashMap<>();
         List<Block> list = new ArrayList<>();
 
@@ -33,13 +33,25 @@ public class DrawCFG {
                 //condition block
                 Block curBlock = cur.getNext().get(0);
                 MutableNode target = map.get(curBlock);
-                Link link = source.linkTo(target).with(Label.of("No"), Color.RED);
+                Link link = null;
+                if (liveSet) {
+                    link = source.linkTo(target).with(Label.of("No" + System.lineSeparator() + curBlock.liveSetIn.toString()), Color.RED);
+                } else {
+                    link = source.linkTo(target).with(Label.of("No"), Color.RED);
+                }
+
                 source.links().add(link);
                 g.add(source);
 
                 curBlock = cur.getNext().get(1);
                 target = map.get(curBlock);
-                link = source.linkTo(target).with(Label.of("Yes"), Color.GREEN);
+
+                if (liveSet) {
+                    link = source.linkTo(target).with(Label.of("Yes" + System.lineSeparator() + curBlock.liveSetIn.toString()), Color.GREEN);
+                } else {
+                    link = source.linkTo(target).with(Label.of("Yes"), Color.GREEN);
+                }
+
                 source.links().add(link);
                 g.add(source);
             } else if (numChild == 0){
@@ -47,7 +59,13 @@ public class DrawCFG {
             } else {
                 Block curBlock = cur.getNext().get(0);
                 MutableNode target = map.get(curBlock);
-                Link link = source.linkTo(target).with(Label.of(""));
+                Link link = null;
+                if (liveSet) {
+                    link = source.linkTo(target).with(Label.of(curBlock.liveSetIn.toString()));
+                } else {
+                    link = source.linkTo(target).with(Label.of(""));
+                }
+
                 source.links().add(link);
                 g.add(source);
             }
@@ -55,7 +73,7 @@ public class DrawCFG {
         }
 
         try {
-            Graphviz.fromGraph(g).width(4000).height(3000).render(Format.PNG).toFile(new File(file + "cfg.png"));
+            Graphviz.fromGraph(g).width(4000).height(3000).render(Format.PNG).toFile(new File(file + "_CFG.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

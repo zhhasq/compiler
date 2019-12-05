@@ -1,14 +1,15 @@
 package sheng.zhong.project2;
 
 import sheng.zhong.project2.codegenerator.Generator;
-import sheng.zhong.project2.codegenerator.Optimizer;
+import sheng.zhong.project2.optimize.Optimizer;
 
 import java.util.Arrays;
 
 public class Prime {
     public static void main(String[] args) {
         if (true) {
-            Generator generator = new Generator("src/file/prime" ,"prime", "inputArr");
+            Generator generator = new Generator("src/file/prime" ,"prime", "inputArr",Arrays.asList(new String[]{"result"}));
+
 
             generator.generateCode();
             generator.showInfo();
@@ -21,11 +22,21 @@ public class Prime {
             Optimizer optimizer = new Optimizer(generator);
             optimizer.generateFlowGraph();
             optimizer.showDataFlowEquations();
-            optimizer.calculateDataFlowEquations();
-            optimizer.showReachingDef();
-            optimizer.constantFolding();
+            optimizer.showReachingDefSet();
+
+            optimizer.runConsFolding();
             optimizer.checkBlockVars();
             optimizer.drawNewAst();
+
+            optimizer.runLivenessAnalysis();
+            optimizer.showLiveResult();
+
+            optimizer.generateNewFlowGraph();
+
+            optimizer.generateRIG();
+            optimizer.solveColor();
+
+
         }
         System.out.println("range: [2 - 1]: " + countPrime(1));
         System.out.println("range: [2 - 2]: " + countPrime(2));

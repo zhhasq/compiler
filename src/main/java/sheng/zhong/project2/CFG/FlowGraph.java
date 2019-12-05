@@ -24,5 +24,8 @@ public class FlowGraph {
         Block end = new GeneralBlock(-2);
         generateCommands(Arrays.asList(new Block[]{this.start}), end, astRoot.jjtGetChild(0));
     }
+    public void drawCFG(String path, boolean drawLiveSet) {
+        DrawCFG.draw(this.blockMap, this.start, path, drawLiveSet);
+    }
 
 }

@@ -6,11 +6,11 @@
     .type consFoldingTest, @function
 consFoldingTest:
 
-  addi  sp,sp,-168
-  sd    s0,160(sp)
-  addi  s0,sp,168
-  sd    a0,-120(s0)
-  ld    a0,-120(s0)
+  addi  sp,sp,-136
+  sd    s0,128(sp)
+  addi  s0,sp,136
+  sd    a0,-88(s0)
+  ld    a0,-88(s0)
   ld    t0,0(a0)
   sd    t0,-48(s0)
   ld    t0,8(a0)
@@ -19,14 +19,6 @@ consFoldingTest:
   sd    t0,-64(s0)
   ld    t0,24(a0)
   sd    t0,-72(s0)
-  ld    t0,32(a0)
-  sd    t0,-96(s0)
-  ld    t0,40(a0)
-  sd    t0,-104(s0)
-  ld    t0,48(a0)
-  sd    t0,-80(s0)
-  ld    t0,56(a0)
-  sd    t0,-88(s0)
 nop
 nop
 nop
@@ -38,25 +30,9 @@ nop
   #label: 1
   li    t0,20
   sd    t0,-56(s0)
-  #c := (((((a + m ) + n ) + x ) + y ) + b ) 
+  #c := (a + b ) 
   #label: 2
   ld    t0,-48(s0)
-  sd    t0,-16(s0)
-  ld    t0,-96(s0)
-  ld    t1,-16(s0)
-  add   t0,t0,t1
-  sd    t0,-16(s0)
-  ld    t0,-104(s0)
-  ld    t1,-16(s0)
-  add   t0,t0,t1
-  sd    t0,-16(s0)
-  ld    t0,-80(s0)
-  ld    t1,-16(s0)
-  add   t0,t0,t1
-  sd    t0,-16(s0)
-  ld    t0,-88(s0)
-  ld    t1,-16(s0)
-  add   t0,t0,t1
   sd    t0,-16(s0)
   ld    t0,-56(s0)
   ld    t1,-16(s0)
@@ -117,9 +93,17 @@ nop
   j     .L5
 #Things to do when IF condition: ((a * (a + b ) ) Gre (c + d ) )  is Not met
 .L4:
-  #a := 3 
+  #a := (a * (b - d ) ) 
   #label: 7
-  li    t0,3
+  ld    t0,-48(s0)
+  sd    t0,-16(s0)
+  ld    t0,-56(s0)
+  sd    t0,-24(s0)
+  ld    t0,-72(s0)
+  ld    t1,-24(s0)
+  sub   t0,t1,t0
+  ld    t1,-16(s0)
+  mul   t0,t0,t1
   sd    t0,-48(s0)
 #code after if ((a * (a + b ) ) Gre (c + d ) ) 
 .L5:
@@ -145,7 +129,7 @@ nop
 nop
 nop
 nop
-  ld    a0,-120(s0)
+  ld    a0,-88(s0)
   ld    t0,-48(s0)
   sd    t0,0(a0)
   ld    t0,-56(s0)
@@ -154,17 +138,9 @@ nop
   sd    t0,16(a0)
   ld    t0,-72(s0)
   sd    t0,24(a0)
-  ld    t0,-96(s0)
-  sd    t0,32(a0)
-  ld    t0,-104(s0)
-  sd    t0,40(a0)
-  ld    t0,-80(s0)
-  sd    t0,48(a0)
-  ld    t0,-88(s0)
-  sd    t0,56(a0)
 nop
-  ld    s0,160(sp)
-  addi  sp,sp,168
+  ld    s0,128(sp)
+  addi  sp,sp,136
 jr  ra
     .size   consFoldingTest, .-consFoldingTest
     .ident "GCC: (GNU) 9.0.1 20190123 (Red Hat 9.0.1-0.1)"

@@ -32,7 +32,7 @@ public class DrawTree {
         }
 
         try {
-            Graphviz.fromGraph(g).width(4000).height(3000).render(Format.PNG).toFile(new File(file + ".png"));
+            Graphviz.fromGraph(g).width(4000).height(3000).render(Format.PNG).toFile(new File(file + "_AST.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -35,7 +35,7 @@ interface Node {
   public void setChildren (int i, Node child);
   public void clear(); //remove parent and childer
   public int getLabel();
-
+  public void setLabel(int label);
   public  String toStringWithLabel();
 }
 /* JavaCC - OriginalChecksum=f321f02c1d43b87914acea48d856de05 (do not edit this line) */

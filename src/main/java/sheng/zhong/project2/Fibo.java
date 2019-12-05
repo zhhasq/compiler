@@ -1,6 +1,7 @@
 package sheng.zhong.project2;
 
 import sheng.zhong.project2.codegenerator.Generator;
+import sheng.zhong.project2.optimize.Optimizer;
 
 import java.util.Arrays;
 
@@ -8,7 +9,8 @@ public class Fibo {
 
     public static void main(String[] args) {
         if (true) {
-            Generator generator = new Generator("src/file/fibo", "fibo", "inputArr");
+            Generator generator = new Generator("src/file/fibo" ,"fibo", "inputArr",Arrays.asList(new String[]{"b"}));
+
 
             generator.generateCode();
             generator.showInfo();
@@ -17,6 +19,23 @@ public class Fibo {
 
             generator.showAsseCode();
             generator.toFile();
+
+            Optimizer optimizer = new Optimizer(generator);
+            optimizer.generateFlowGraph();
+            optimizer.showDataFlowEquations();
+            optimizer.showReachingDefSet();
+
+            optimizer.runConsFolding();
+            optimizer.checkBlockVars();
+            optimizer.drawNewAst();
+
+            optimizer.runLivenessAnalysis();
+            optimizer.showLiveResult();
+
+            optimizer.generateNewFlowGraph();
+
+            optimizer.generateRIG();
+            optimizer.solveColor();
         }
         System.out.println("0 th fibonacci number is " + fibonacci(0));
         System.out.println("1 th fibonacci number is " + fibonacci(1));

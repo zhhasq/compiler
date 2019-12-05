@@ -7,7 +7,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ded35796-bf8d-4af3-aac5-47cb9cb842d3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/file/livenessTest/livenessTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFG/LiveSet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/livenessTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/optimize/ConsFolding.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/optimize/DrawRig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/optimize/LivenessUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/optimize/RIG.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/optimize/ReachingDefUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/consFoldingTest/consFoldingTest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/consFoldingTest/consFoldingTest.s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/consFoldingTest/consFoldingTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/consFoldingTest/consFoldingTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/consFoldingTest/consFoldingTestNoComment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/consFoldingTest/consFoldingTestcfg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/consFoldingTest/main.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/consFoldingTest/newASTconsFoldingTest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/example33/example33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/example33/example33.s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/example33/example33NoComment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/example33/example33cfg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/example33/main.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/example39/example39.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/example39/example39.s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/example39/example39NoComment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/example39/example39cfg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/example39/main.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/prime/main.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/prime/newASTprime.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/prime/prime.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/prime/prime.s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/prime/prime.txt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/prime/primeNoComment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/prime/primeNoComment.txt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/prime/primecfg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/DrawTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/DrawTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/SimpleNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/AST/SimpleNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFG/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFG/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFG/DrawCFG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFG/DrawCFG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFG/FlowGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/CFG/FlowGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/ConsFoldingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/ConsFoldingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Example33.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Example33.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Fibo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Fibo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Prime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Prime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/codegenerator/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/codegenerator/Generator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/codegenerator/Optimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sheng/zhong/project2/optimize/Optimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/DrawTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/DrawTree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/SimpleNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/AST/SimpleNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/CFG/Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/CFG/Block.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/CFG/DrawCFG.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/CFG/DrawCFG.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/CFG/FlowGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/CFG/FlowGraph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/ConsFoldingTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/ConsFoldingTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Example33.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Example33.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Prime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/Prime.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/codegenerator/Generator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/codegenerator/Generator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sheng/zhong/project2/codegenerator/Optimizer.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,21 +107,21 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/file/example39" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="sheng.zhong.project2.codegenerator" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/file" />
       <recent name="$PROJECT_DIR$/src/file/test" />
       <recent name="$PROJECT_DIR$/src/file/test3" />
       <recent name="$PROJECT_DIR$/src/main/java/AST" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="sheng.zhong.project2.codegenerator" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/file/example39" />
-      <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -80,20 +136,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ConsFoldingTest">
-    <configuration name="CFGTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sheng.zhong.project2.CFGTest2" />
-      <module name="parserTest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sheng.zhong.project2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Fibo">
     <configuration name="ConsFoldingTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="sheng.zhong.project2.ConsFoldingTest" />
       <module name="parserTest" />
@@ -107,8 +150,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Nosense" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sheng.zhong.project2.Nosense" />
+    <configuration name="Example33" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sheng.zhong.project2.Example33" />
+      <module name="parserTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sheng.zhong.project2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Fibo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sheng.zhong.project2.Fibo" />
       <module name="parserTest" />
       <extension name="coverage">
         <pattern>
@@ -133,8 +189,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Sort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sheng.zhong.project2.Sort" />
+    <configuration name="livenessTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sheng.zhong.project2.livenessTest" />
       <module name="parserTest" />
       <extension name="coverage">
         <pattern>
@@ -148,11 +204,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ConsFoldingTest" />
+        <item itemvalue="Application.Fibo" />
+        <item itemvalue="Application.Example33" />
         <item itemvalue="Application.Prime" />
-        <item itemvalue="Application.CFGTest2" />
-        <item itemvalue="Application.Sort" />
-        <item itemvalue="Application.Nosense" />
+        <item itemvalue="Application.livenessTest" />
+        <item itemvalue="Application.ConsFoldingTest" />
       </list>
     </recent_temporary>
   </component>
@@ -262,6 +318,31 @@
           <url>file://$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Nosense.java</url>
           <line>53</line>
           <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sheng/zhong/project2/Example33.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sheng/zhong/project2/optimize/Optimizer.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sheng/zhong/project2/optimize/RIG.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sheng/zhong/project2/optimize/RIG.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sheng/zhong/project2/optimize/RIG.java</url>
+          <line>119</line>
+          <option name="timeStamp" value="94" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

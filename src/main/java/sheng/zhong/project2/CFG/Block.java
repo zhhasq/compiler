@@ -13,7 +13,10 @@ public abstract class Block {
     public ReachingDef reachingDefIn;
     public ReachingDef reachingDefExit;
     public Map<String, List<Node>> varsNodeMap = new HashMap<>();
+    public String lhsVar; //only assign block has this, null for other types blocks
     public Set<Node> arithNodes = new HashSet<>();
+    public LiveSet liveSetIn;
+    public LiveSet liveSetExit;
 
     public Block(Node node) {
         in = new ArrayList<>();
@@ -21,6 +24,8 @@ public abstract class Block {
         this.node = node;
         reachingDefIn = new ReachingDef(this.label, true);
         reachingDefExit = new ReachingDef(this.label, false);
+        liveSetIn = new LiveSet(this.label, true);
+        liveSetExit = new LiveSet(this.label, false);
     }
     public Block(int label) {
         in = new ArrayList<>();
@@ -28,6 +33,8 @@ public abstract class Block {
         this.node = null;
         reachingDefIn = new ReachingDef(this.label, true);
         reachingDefExit = new ReachingDef(this.label, false);
+        liveSetIn = new LiveSet(this.label, true);
+        liveSetExit = new LiveSet(this.label, false);
     }
 
     @Override

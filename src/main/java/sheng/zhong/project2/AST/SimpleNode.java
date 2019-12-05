@@ -105,10 +105,13 @@ class SimpleNode implements Node {
   public int getLabel() {
     return this.label;
   }
-  public void setLabel (int label) {
-    this.label = label;
-  }
 
+  @Override
+  public void setLabel(int label) {
+
+      this.label = label;
+
+  }
 }
 
 /* JavaCC - OriginalChecksum=b25f114043acbef0b919c12e1e5a96a2 (do not edit this line) */
