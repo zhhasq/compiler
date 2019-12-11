@@ -109,5 +109,6 @@ public abstract class Block {
     public abstract String ToStringRDOut();
     public abstract int isConditionBlock(); //0 false, 1 while, 2 if
     public abstract void calculateExitRD();
-
+    public abstract String ToStringLiveIn();
+    public abstract String ToStringLiveOut();
 }

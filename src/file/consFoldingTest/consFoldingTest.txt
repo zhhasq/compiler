@@ -7,5 +7,6 @@ while d > a - b + 3 do
         skip
     else
         a := a * (b - d)
-    fi
+    fi;
+    c := 30
 od

@@ -268,4 +268,12 @@ public class AsseCodeFactory {
         sb.append(reg1);
         return sb.toString();
     }
+    public static String mov(String destReg,  String source) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("  mv  ");
+        sb.append(destReg);
+        sb.append(",");
+        sb.append(source);
+        return sb.toString();
+    }
 }

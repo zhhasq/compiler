@@ -30,12 +30,20 @@ public class Fibo {
             optimizer.drawNewAst();
 
             optimizer.runLivenessAnalysis();
+
+            optimizer.removeDeadCode();
+            optimizer.showRemovedDeadCode();
+
             optimizer.showLiveResult();
 
             optimizer.generateNewFlowGraph();
 
             optimizer.generateRIG();
             optimizer.solveColor();
+            optimizer.showVarRegMap();
+            optimizer.generateCode();
+            optimizer.showRegVarMap();
+            optimizer.showInfo();
         }
         System.out.println("0 th fibonacci number is " + fibonacci(0));
         System.out.println("1 th fibonacci number is " + fibonacci(1));

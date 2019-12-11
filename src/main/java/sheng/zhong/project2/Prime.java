@@ -29,14 +29,20 @@ public class Prime {
             optimizer.drawNewAst();
 
             optimizer.runLivenessAnalysis();
+
+            optimizer.removeDeadCode();
+            optimizer.showRemovedDeadCode();
+
             optimizer.showLiveResult();
 
             optimizer.generateNewFlowGraph();
 
             optimizer.generateRIG();
             optimizer.solveColor();
-
-
+            optimizer.showVarRegMap();
+            optimizer.generateCode();
+            optimizer.showRegVarMap();
+            optimizer.showInfo();
         }
         System.out.println("range: [2 - 1]: " + countPrime(1));
         System.out.println("range: [2 - 2]: " + countPrime(2));

@@ -18,8 +18,11 @@ public class CompileArguments {
         //then save t0 to stack
         result.add(AsseCodeFactory.loadFromMem(Register.a0, inputMap.get(inputArr).toString(), Register.s0));
         for (String argument : argumentList) {
-            result.add(AsseCodeFactory.loadFromMem(Register.t0, argumentMapArray.get(argument).toString(), Register.a0));
-            result.add(AsseCodeFactory.storeToMem(Register.t0, varsMap.get(argument).toString(), Register.s0));
+            if (varsMap.get(argument) != null) {
+                //for optimizer, if the variable not used in program then there is no need to initialize it.
+                result.add(AsseCodeFactory.loadFromMem(Register.t0, argumentMapArray.get(argument).toString(), Register.a0));
+                result.add(AsseCodeFactory.storeToMem(Register.t0, varsMap.get(argument).toString(), Register.s0));
+            }
         }
         return result;
     }
@@ -34,8 +37,10 @@ public class CompileArguments {
         //then save t0 to array
         result.add(AsseCodeFactory.loadFromMem(Register.a0, inputMap.get(inputArr).toString(), Register.s0));
         for (String argument : argumentList) {
-            result.add(AsseCodeFactory.loadFromMem(Register.t0, varsMap.get(argument).toString(), Register.s0));
-            result.add(AsseCodeFactory.storeToMem(Register.t0, argumentMapArray.get(argument).toString(), Register.a0));
+            if (varsMap.get(argument) != null) {
+                result.add(AsseCodeFactory.loadFromMem(Register.t0, varsMap.get(argument).toString(), Register.s0));
+                result.add(AsseCodeFactory.storeToMem(Register.t0, argumentMapArray.get(argument).toString(), Register.a0));
+            }
         }
         return result;
     }

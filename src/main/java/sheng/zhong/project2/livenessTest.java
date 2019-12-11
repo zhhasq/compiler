@@ -27,11 +27,19 @@ public class livenessTest {
         optimizer.drawNewAst();
 
         optimizer.runLivenessAnalysis();
+
+        optimizer.removeDeadCode();
+        optimizer.showRemovedDeadCode();
+
         optimizer.showLiveResult();
 
         optimizer.generateNewFlowGraph();
 
         optimizer.generateRIG();
         optimizer.solveColor();
+        optimizer.showVarRegMap();
+        optimizer.generateCode();
+        optimizer.showRegVarMap();
+        optimizer.showInfo();
     }
 }

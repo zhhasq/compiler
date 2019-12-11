@@ -31,29 +31,29 @@ public class Generator {
     public int stackSize;
     public Node root;
     public String file;
-    Map<Node, StackMachine> expStackMachineMap;
+    public Map<Node, StackMachine> expStackMachineMap;
     List<String> code;
     Set<String> calleeReg;
     Integer stackOffset; //offset for the virtualStack, with respect to s0 so all should be < 0
     Map<String, Integer> calleeRegMap;
     Map<Node, List<String>> expCodeMap;
-    List<String> argumentList;
-    Integer numInput;
+    public List<String> argumentList;
+    public Integer numInput;
     public Set<String> vars;   //for local variable
-    Map<String, Integer> varsMap;
+    public Map<String, Integer> varsMap;
     Integer varsOffset; //with respect to s0.
     Integer inputOffset;
 
     Map<String, Integer> inputMap;
 
     Map<String, Integer> argumentMapArray;
-    String inputName;
+    public String inputName;
     int label = 1;
     public String path;
 
     //for liveness analysis
     public Set<String> output = new HashSet<>();
-
+    public Integer numColor = 0;
 
     public Generator(String path, String file, String inputName) {
         //argument refers to the inputs of the while language.
@@ -74,7 +74,6 @@ public class Generator {
         argumentMapArray = new HashMap<>();
         this.path = path;
     }
-
     public Generator(String path, String file, String inputName, List<String> output) {
         //argument refers to the inputs of the while language.
         //input refers to the c language;
@@ -94,6 +93,27 @@ public class Generator {
         argumentMapArray = new HashMap<>();
         this.path = path;
         this.output.addAll(output);
+    }
+    public Generator(String path, String file, String inputName, List<String> output, int numColor) {
+        //argument refers to the inputs of the while language.
+        //input refers to the c language;
+        code = new ArrayList<>();
+        vars = new HashSet<>();
+        expStackMachineMap = new HashMap<>();
+        this.file = file;
+        this.calleeRegMap = new HashMap<>();
+        calleeReg = new HashSet<>();
+        calleeReg.add(Register.s0);
+        expCodeMap = new HashMap<>();
+        //this.argumentList = argumentList;
+        numInput = 1;  //only pass in the array
+        this.inputMap = new HashMap<>();
+        this.inputName = inputName;
+        varsMap = new HashMap<>();
+        argumentMapArray = new HashMap<>();
+        this.path = path;
+        this.output.addAll(output);
+        this.numColor = numColor;
     }
 
     public void init() {

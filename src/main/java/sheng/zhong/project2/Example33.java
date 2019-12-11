@@ -23,17 +23,26 @@ public class Example33 {
             optimizer.showDataFlowEquations();
             optimizer.showReachingDefSet();
 
-            optimizer.runConsFolding();
-            optimizer.checkBlockVars();
-            optimizer.drawNewAst();
+           optimizer.runConsFolding();
+           optimizer.checkBlockVars();
+           optimizer.drawNewAst();
 
             optimizer.runLivenessAnalysis();
+
+            optimizer.removeDeadCode();
+            optimizer.showRemovedDeadCode();
+
             optimizer.showLiveResult();
 
             optimizer.generateNewFlowGraph();
 
             optimizer.generateRIG();
             optimizer.solveColor();
+            optimizer.showVarRegMap();
+            optimizer.generateCode();
+            optimizer.showRegVarMap();
+            optimizer.showInfo();
+
         }
     }
 }

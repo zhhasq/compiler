@@ -74,4 +74,42 @@ public class ConditionBlock extends Block {
         //RDOut = RDin
         this.reachingDefExit.add(this.reachingDefIn);
     }
+
+    @Override
+    public String ToStringLiveIn() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.liveSetIn.toString2());
+        sb.append(" = {");
+        for (Map.Entry<String, List<Node>> entry : this.varsNodeMap.entrySet()) {
+            sb.append(entry.getKey());
+            sb.append(", ");
+        }
+        if (sb.length() > 4 + this.liveSetIn.toString2().length()) {
+            sb.deleteCharAt(sb.length() - 1);
+            sb.deleteCharAt(sb.length() - 1);
+        }
+
+        sb.append("} ");
+        sb.append("U (");
+        sb.append(this.liveSetExit.toString2());
+        sb.append(" \\ ");
+        sb.append("{}");
+        sb.append(")");
+        return sb.toString();
+    }
+
+    @Override
+    public String ToStringLiveOut() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.liveSetExit.toString2());
+        sb.append(" = ");
+        for (Block nextBlock : this.getNext()) {
+            sb.append(nextBlock.liveSetIn.toString2());
+            sb.append(" U ");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        sb.deleteCharAt(sb.length() - 1);
+        sb.deleteCharAt(sb.length() - 1);
+        return sb.toString();
+    }
 }

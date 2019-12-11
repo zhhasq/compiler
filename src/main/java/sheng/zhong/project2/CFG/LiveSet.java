@@ -1,5 +1,6 @@
 package sheng.zhong.project2.CFG;
 
+
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -27,6 +28,10 @@ public class LiveSet {
         return isIn;
     }
 
+    public boolean contains(String s) {
+        return this.set.contains(s);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -41,6 +46,19 @@ public class LiveSet {
         }
 
         sb.append("}");
+        return sb.toString();
+    }
+    public String toString2() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("LV");
+        if (this.label == -1) {
+            sb.append("Start");
+        } else if (this.label == -2) {
+            sb.append("End");
+        } else {
+            sb.append(label);
+        }
+        sb.append(isIn ? "In" : "Exit");
         return sb.toString();
     }
 }

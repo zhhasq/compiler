@@ -1,13 +1,14 @@
 package sheng.zhong.project2;
 
 import sheng.zhong.project2.codegenerator.Generator;
+import sheng.zhong.project2.optimize.Optimizer;
 
 import java.util.Arrays;
 
 public class Collatz {
     public static void main(String[] args)  {
         if (true) {
-            Generator generator = new Generator("src/file/collatz", "collatz", "inputArr");
+            Generator generator = new Generator("src/file/collatz", "collatz", "inputArr", Arrays.asList(new String[]{"output"}));
 
             generator.generateCode();
             generator.showInfo();
@@ -16,6 +17,32 @@ public class Collatz {
 
             generator.showAsseCode();
             generator.toFile();
+
+            Optimizer optimizer = new Optimizer(generator);
+            optimizer.generateFlowGraph();
+            optimizer.showDataFlowEquations();
+            optimizer.showReachingDefSet();
+
+            optimizer.runConsFolding();
+            optimizer.checkBlockVars();
+            optimizer.drawNewAst();
+
+            optimizer.runLivenessAnalysis();
+
+            optimizer.removeDeadCode();
+            optimizer.showRemovedDeadCode();
+
+            optimizer.showLiveResult();
+
+            optimizer.generateNewFlowGraph();
+
+            optimizer.generateRIG();
+            optimizer.solveColor();
+            optimizer.showVarRegMap();
+            optimizer.showRegVarMap();
+            optimizer.generateCode();
+
+            optimizer.showInfo();
         }
         System.out.println("for input 0: " + collatz(0));
         System.out.println("for input 1: " + collatz(1));

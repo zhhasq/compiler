@@ -10,9 +10,10 @@ import java.util.List;
 public class BlockFactory {
 
     public static List<Block> generateCommands(List<Block> preBlockList, Block end, Node commands) {
-        //pass in commands node
-        //using iterative way to generate
-        //return the last blocks
+        //return the List blocks related to this commands node from AST
+        //all the newly generated curBlock has to connect with all the blocks in preBlockList
+        //If this commands node from Start, then a end block will be provided. else the end block is null.
+
         int numChild = commands.jjtGetNumChildren();
         List<Block> result = new ArrayList<>();
         Block curBlock = null;
@@ -63,6 +64,7 @@ public class BlockFactory {
         }
         return result;
     }
+
     public static void connectBlock(List<Block> preBlockList, Block curBlock) {
         for (Block preBlock : preBlockList) {
             if (preBlock.getNext().size() > 0) {
@@ -75,14 +77,17 @@ public class BlockFactory {
             curBlock.assignPre(preBlock);
         }
     }
+
     public static Block generateAssiBlock(Node assign) {
         Block block = new GeneralBlock(assign);
         return block;
     }
+
     public static Block generateSkipBlock(Node skip) {
         Block block = new GeneralBlock(skip);
         return block;
     }
+
     public static Block generateWhileBlock(Node whileNode) {
         //use recursive way to generate
         //the last block of while commands node will point back to condition block

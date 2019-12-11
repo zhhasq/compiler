@@ -11,6 +11,11 @@ import java.util.*;
 public class ConsFolding {
 
     public static void constantFolding(FlowGraph flowGraph) {
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+        System.out.println("******* start constant Folding *********");
         //note: this method can only be called after solve the RD equations.
         //will modify the AST from slowGenerator;
         //need the solution of RD
@@ -39,6 +44,7 @@ public class ConsFolding {
                             ASTInt newNode = new ASTInt(NodeIDMap.getNodeIDMap().get(NodeUtils.INT));
                             newNode.setName(constant.toString());
                             replaceNode(tmpNode, newNode);
+                            System.out.println("On label " + curBlock.label + " variable " + tmpNode.toString() + " is replaced by " + newNode.toString());
                         }
                         stop = false;
                     }
@@ -71,6 +77,7 @@ public class ConsFolding {
                 }
             }
         }
+        System.out.println("******* End constant Folding *********");
     }
 
     private static Node mergeArithExp(Node arithNode, boolean isConditionBlock, Block curBlock) {
@@ -109,8 +116,7 @@ public class ConsFolding {
         }
     }
 
-    private static void replaceNode(Node replaced, Node newNode) {
-
+    public static void replaceNode(Node replaced, Node newNode) {
         SimpleNode par = (SimpleNode) replaced.jjtGetParent();
         newNode.jjtSetParent(par);
         for (int j = 0; j < par.jjtGetNumChildren(); j++) {
@@ -134,14 +140,14 @@ public class ConsFolding {
             List<Integer> tmp = new ArrayList<>();
             Integer constant = null;
             for (Integer label : labels) {
-                if (consLabel.get(label) != null || label == -1) {
+                if (consLabel.get(label) == null || label == -1) {
                     return null;
                 } else {
                     tmp.add(consLabel.get(label));
                 }
             }
             if (tmp.size() == labels.size()) {
-                boolean same = false;
+                boolean same = true;
                 Integer pre = tmp.get(0);
                 for (int i = 1; i < tmp.size(); i++) {
                     Integer cur = tmp.get(i);

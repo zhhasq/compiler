@@ -73,7 +73,7 @@ public class DrawCFG {
         }
 
         try {
-            Graphviz.fromGraph(g).width(4000).height(3000).render(Format.PNG).toFile(new File(file + "_CFG.png"));
+            Graphviz.fromGraph(g).width(8000).height(6000).render(Format.PNG).toFile(new File(file + "_CFG.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

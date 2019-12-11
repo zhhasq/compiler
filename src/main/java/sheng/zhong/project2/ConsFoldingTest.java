@@ -17,18 +17,28 @@ public class ConsFoldingTest {
 
         Optimizer optimizer = new Optimizer(generator);
         optimizer.generateFlowGraph();
-
         optimizer.showDataFlowEquations();
         optimizer.showReachingDefSet();
 
         optimizer.runConsFolding();
         optimizer.checkBlockVars();
-
         optimizer.drawNewAst();
-        optimizer.generateNewFlowGraph();
 
         optimizer.runLivenessAnalysis();
+
+        optimizer.removeDeadCode();
+        optimizer.showRemovedDeadCode();
+
         optimizer.showLiveResult();
+
+        optimizer.generateNewFlowGraph();
+
+        optimizer.generateRIG();
+        optimizer.solveColor();
+        optimizer.showVarRegMap();
+        optimizer.generateCode();
+        optimizer.showRegVarMap();
+        optimizer.showInfo();
     }
 
 }

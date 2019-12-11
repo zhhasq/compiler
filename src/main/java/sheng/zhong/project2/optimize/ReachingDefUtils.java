@@ -9,7 +9,12 @@ import java.util.*;
 public class ReachingDefUtils {
 
     static void showDataFlowEquations(FlowGraph flowGraph, Map<ReachingDef, List<ReachingDef>> dataFlowEquations) {
-        System.out.println("-------- Data flow equations:");
+        System.out.println();
+        System.out.println();
+
+        System.out.println();
+
+        System.out.println("*********** Data flow equations:  *********** ");
 
         Map<Integer, Block> blockMap = flowGraph.blockMap;
         int numBlocks = blockMap.size() - 2; //start and end doesn't count

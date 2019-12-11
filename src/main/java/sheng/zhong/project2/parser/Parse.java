@@ -63,6 +63,9 @@ public class Parse {
     }
 
     public static int findStackHeight(Map<Node, StackMachine> map) {
+        if (map == null) {
+            return 0;
+        }
         int result = 0;
         for (Map.Entry<Node, StackMachine> entry : map.entrySet()) {
             result = Math.max(result, entry.getValue().getMaxHeight());

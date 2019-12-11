@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class ParseExp {
     public static Map<Node, StackMachine> toStackMachine(Node root) {
-        List<Node> expNodeList = findExpNode(root);
+        List<Node> expNodeList = findExpNode(root, true);
         Map<Node, StackMachine> map = new HashMap<>();
         for (Node node : expNodeList) {
             map.put(node, toStackMachineHelper(node));
@@ -29,17 +29,17 @@ public class ParseExp {
         return stackMachine;
     }
 
-    public static List<Node> findExpNode(Node root) {
+    public static List<Node> findExpNode(Node root, boolean isSwapLabel) {
         List<Node> expNodeList = new ArrayList<>();
-        preOrder(root, expNodeList);
+        preOrder(root, expNodeList, isSwapLabel);
         return expNodeList;
     }
 
-    private static void preOrder(Node root, List<Node> result) {
+    private static void preOrder(Node root, List<Node> result, boolean isSwapLabel) {
         if (root.jjtGetNumChildren() == 0) {
             if (NodeIDMap.isExp(root)) {
                 result.add(root);
-                if (NodeIDMap.isBoolExp(root)) {
+                if (isSwapLabel && NodeIDMap.isBoolExp(root)) {
                     SimpleNode tmp = (SimpleNode) root;
                     SimpleNode parent = (SimpleNode) root.jjtGetParent();
                     tmp.setLabel(parent.getLabel());
@@ -51,7 +51,7 @@ public class ParseExp {
 
         if (NodeIDMap.isExp(root)) {
             //swap label
-            if (NodeIDMap.isBoolExp(root)) {
+            if (isSwapLabel && NodeIDMap.isBoolExp(root)) {
                 SimpleNode tmp = (SimpleNode) root;
                 SimpleNode parent = (SimpleNode) root.jjtGetParent();
                 tmp.setLabel(parent.getLabel());
@@ -64,11 +64,11 @@ public class ParseExp {
         int childNum = root.jjtGetNumChildren();
         if (NodeIDMap.isAssign(root)) {
             for (int i = 1; i < childNum; i++) {
-                preOrder(root.jjtGetChild(i), result);
+                preOrder(root.jjtGetChild(i), result, isSwapLabel);
             }
         } else {
             for (int i = 0; i < childNum; i++) {
-                preOrder(root.jjtGetChild(i), result);
+                preOrder(root.jjtGetChild(i), result, isSwapLabel);
             }
         }
     }

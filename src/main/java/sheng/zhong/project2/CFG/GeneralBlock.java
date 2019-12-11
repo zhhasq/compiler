@@ -2,9 +2,11 @@ package sheng.zhong.project2.CFG;
 
 import sheng.zhong.project2.AST.Node;
 import sheng.zhong.project2.AST.NodeIDMap;
+import sun.rmi.runtime.NewThreadAction;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class GeneralBlock extends Block {
     public Block next;
@@ -86,5 +88,48 @@ public class GeneralBlock extends Block {
             sb.append(")}");
             return sb.toString();
         }
+    }
+
+    @Override
+    public String ToStringLiveIn() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.liveSetIn.toString2());
+        sb.append(" = {");
+        for (Map.Entry<String, List<Node>> entry : this.varsNodeMap.entrySet()) {
+            sb.append(entry.getKey());
+            sb.append(", ");
+        }
+
+        if (sb.length() > 4 + this.liveSetIn.toString2().length()) {
+            sb.deleteCharAt(sb.length() - 1);
+            sb.deleteCharAt(sb.length() - 1);
+        }
+        sb.append("}");
+        sb.append(" U ");
+        sb.append("(");
+        sb.append(this.liveSetExit.toString2());
+        sb.append(" \\ ");
+        sb.append("{");
+        if (this.lhsVar != null) {
+            sb.append(this.lhsVar);
+        }
+        sb.append("})");
+
+        return sb.toString();
+    }
+
+    @Override
+    public String ToStringLiveOut() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.liveSetExit.toString2());
+        sb.append(" = ");
+        for (Block nextBlock : this.getNext()) {
+            sb.append(nextBlock.liveSetIn.toString2());
+            sb.append(" U ");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        sb.deleteCharAt(sb.length() - 1);
+        sb.deleteCharAt(sb.length() - 1);
+        return sb.toString();
     }
 }

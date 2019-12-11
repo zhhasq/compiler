@@ -1,11 +1,14 @@
 package sheng.zhong.project2;
 
 import sheng.zhong.project2.codegenerator.Generator;
+import sheng.zhong.project2.optimize.Optimizer;
+
+import java.util.Arrays;
 
 public class Nosense {
     public static void main(String[] args) {
         if (true) {
-            Generator generator = new Generator("src/file/nosense", "nosense", "inputArr");
+            Generator generator = new Generator("src/file/nosense", "nosense", "inputArr", Arrays.asList(new String[]{"count1", "count2", "count3", "count4"}));
 
             generator.generateCode();
             generator.showInfo();
@@ -14,6 +17,31 @@ public class Nosense {
 
             generator.showAsseCode();
             generator.toFile();
+
+            Optimizer optimizer = new Optimizer(generator);
+            optimizer.generateFlowGraph();
+            optimizer.showDataFlowEquations();
+            optimizer.showReachingDefSet();
+
+            optimizer.runConsFolding();
+            optimizer.checkBlockVars();
+            optimizer.drawNewAst();
+
+            optimizer.runLivenessAnalysis();
+
+            optimizer.removeDeadCode();
+            optimizer.showRemovedDeadCode();
+
+            optimizer.showLiveResult();
+
+            optimizer.generateNewFlowGraph();
+
+            optimizer.generateRIG();
+            optimizer.solveColor();
+            optimizer.showVarRegMap();
+            optimizer.generateCode();
+            optimizer.showRegVarMap();
+            optimizer.showInfo();
         }
         noSense(1, 1, 1, 1);
         noSense(0, 1, 0, 1);

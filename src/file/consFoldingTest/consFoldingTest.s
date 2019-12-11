@@ -107,6 +107,10 @@ nop
   sd    t0,-48(s0)
 #code after if ((a * (a + b ) ) Gre (c + d ) ) 
 .L5:
+  #c := 30 
+  #label: 8
+  li    t0,30
+  sd    t0,-64(s0)
 #while condition: (d Gre ((a - b ) + 3 ) ) 
   #label: 4
 .L2:

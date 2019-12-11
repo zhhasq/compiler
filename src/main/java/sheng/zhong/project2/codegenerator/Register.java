@@ -6,8 +6,9 @@ public class Register {
     public static final String t0 = "t0";  //tmp
     public static final String t1 = "t1";
 
-    public static final String a0 = "a0"; //first argument
+    public static final String a0 = "a0"; //first argument address
 
+    public static final String x0 = "x0"; //zero register
 
 
 }

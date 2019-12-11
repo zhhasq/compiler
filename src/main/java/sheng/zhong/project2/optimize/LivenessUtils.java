@@ -4,14 +4,39 @@ import org.omg.CORBA.CharSeqHelper;
 import sheng.zhong.project2.CFG.Block;
 import sheng.zhong.project2.CFG.BlockUtils;
 import sheng.zhong.project2.CFG.FlowGraph;
+import sheng.zhong.project2.CFG.LiveSet;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class LivenessUtils {
+
+    public static void reSet(FlowGraph flowGraph) {
+        Map<Integer, Block> blockMap = flowGraph.blockMap;
+        for (Map.Entry<Integer, Block> entry : blockMap.entrySet()) {
+            if (entry.getValue().label != -2) {
+                entry.getValue().liveSetIn = new LiveSet(entry.getValue().label, true);
+                entry.getValue().liveSetExit = new LiveSet(entry.getValue().label, false);
+            }
+        }
+    }
+
+    public static void showLivenessEquations(FlowGraph flowGraph) {
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+        System.out.println("******* Equations for liveness analysis *********");
+        Map<Integer, Block> blockMap = flowGraph.blockMap;
+        int size = blockMap.size() - 2;
+        for (int i = 0; i < size; i++) {
+            System.out.println(blockMap.get(i).ToStringLiveIn());
+            System.out.println(blockMap.get(i).ToStringLiveOut());
+        }
+    }
+
     public static void analyzeLiveness(FlowGraph flowGraph, Set<String> vars, Set<String> output) {
+
+        showLivenessEquations(flowGraph);
         //vars are all the variables appeared in the program
         //output are variables need to be kept in output
 
@@ -44,6 +69,7 @@ public class LivenessUtils {
                 }
             }
         }
+
     }
 
     private static boolean calculateIn(Block curBlock) {
