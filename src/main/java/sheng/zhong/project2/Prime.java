@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Prime {
     public static void main(String[] args) {
         if (true) {
-            Generator generator = new Generator("src/file/prime" ,"prime", "inputArr",Arrays.asList(new String[]{"result"}));
+            Generator generator = new Generator("src/file/prime" ,"prime", "inputArr",Arrays.asList(new String[]{"result"}),11);
 
 
             generator.generateCode();
@@ -40,8 +40,13 @@ public class Prime {
             optimizer.generateRIG();
             optimizer.solveColor();
             optimizer.showVarRegMap();
-            optimizer.generateCode();
             optimizer.showRegVarMap();
+
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+
+            optimizer.generateCode();
             optimizer.showInfo();
         }
         System.out.println("range: [2 - 1]: " + countPrime(1));

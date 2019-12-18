@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Example33 {
     public static void main(String[] args) {
         if (true) {
-            Generator generator = new Generator("src/file/example33", "example33", "inputArr", Arrays.asList(new String[]{"output"}));
+            Generator generator = new Generator("src/file/example33", "example33", "inputArr", Arrays.asList(new String[]{"output"}),11);
 
             generator.generateCode();
             generator.showInfo();
@@ -39,8 +39,13 @@ public class Example33 {
             optimizer.generateRIG();
             optimizer.solveColor();
             optimizer.showVarRegMap();
-            optimizer.generateCode();
             optimizer.showRegVarMap();
+
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+
+            optimizer.generateCode();
             optimizer.showInfo();
 
         }

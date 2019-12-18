@@ -1,0 +1,594 @@
+/usr/lib/jvm/java-8-openjdk-amd64/bin/java -javaagent:/home/sheng/idea-IU-192.6603.28/lib/idea_rt.jar=33101:/home/sheng/idea-IU-192.6603.28/bin -Dfile.encoding=UTF-8 -classpath /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/home/sheng/IdeaProjects/parser2/target/classes:/home/sheng/.m2/repository/guru/nidi/graphviz-java/0.11.0/graphviz-java-0.11.0.jar:/home/sheng/.m2/repository/org/webjars/npm/viz.js/2.1.2/viz.js-2.1.2.jar:/home/sheng/.m2/repository/org/apache/xmlgraphics/xmlgraphics-commons/2.3/xmlgraphics-commons-2.3.jar:/home/sheng/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/home/sheng/.m2/repository/guru/nidi/com/kitfox/svgSalamander/1.1.2/svgSalamander-1.1.2.jar:/home/sheng/.m2/repository/net/arnx/nashorn-promise/0.1.1/nashorn-promise-0.1.1.jar:/home/sheng/.m2/repository/com/eclipsesource/j2v8/j2v8_macosx_x86_64/4.6.0/j2v8_macosx_x86_64-4.6.0.jar:/home/sheng/.m2/repository/com/eclipsesource/j2v8/j2v8_linux_x86_64/4.6.0/j2v8_linux_x86_64-4.6.0.jar:/home/sheng/.m2/repository/com/eclipsesource/j2v8/j2v8_win32_x86_64/4.6.0/j2v8_win32_x86_64-4.6.0.jar:/home/sheng/.m2/repository/com/eclipsesource/j2v8/j2v8_win32_x86/4.6.0/j2v8_win32_x86-4.6.0.jar:/home/sheng/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/home/sheng/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/sheng/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.26/jcl-over-slf4j-1.7.26.jar:/home/sheng/.m2/repository/org/slf4j/jul-to-slf4j/1.7.26/jul-to-slf4j-1.7.26.jar:/home/sheng/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/home/sheng/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/home/sheng/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/home/sheng/.m2/repository/org/apache/logging/log4j/log4j-core/2.12.0/log4j-core-2.12.0.jar:/home/sheng/.m2/repository/org/apache/logging/log4j/log4j-api/2.12.0/log4j-api-2.12.0.jar:/home/sheng/.m2/repository/org/apache/logging/log4j/log4j-slf4j-impl/2.12.0/log4j-slf4j-impl-2.12.0.jar sheng.zhong.project2.Prime
+remove all comments
+main.c generated
+inputs from main.c: inputArr
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+argument for prime:
+    count in array offset 0
+    i in array offset 8
+    k in array offset 16
+    range in array offset 24
+    result in array offset 32
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+stack size: 128
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+callee saved registers   start at stack offset 120 with respect to the top of stack(sp)
+    s0 in stack offset 120
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+virtual stack size: 8 start at stack offset -16 with respect to the bottom of stack(s0)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+local variables start at stack offset -32 with respect to the bottom of stack
+    result in stack offset -32
+    count in stack offset -40
+    range in stack offset -48
+    i in stack offset -56
+    k in stack offset -64
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+input variables from main.c start at stack offset -80 with respect to the bottom of stack
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    inputArr in stack offset -80
+-
+ k
+ 1
+acc := k
+push accumulator
+acc := 1
+pop
+sub
+Gre
+ count
+ 0
+acc := count
+push accumulator
+acc := 0
+pop
+greater
+-
+ range
+ 1
+acc := range
+push accumulator
+acc := 1
+pop
+sub
+Gre
+ count
+ 0
+acc := count
+push accumulator
+acc := 0
+pop
+greater
+=
+ *
+  k
+  i
+ range
+acc := k
+push accumulator
+acc := i
+pop
+mul
+push accumulator
+acc := range
+pop
+equal
+2
+acc := 2
+Gre=
+ range
+ 2
+acc := range
+push accumulator
+acc := 2
+pop
+greaterEq
+Gre=
+ k
+ 1
+acc := k
+push accumulator
+acc := 1
+pop
+greaterEq
++
+ i
+ 1
+acc := i
+push accumulator
+acc := 1
+pop
+add
+Less=
+ *
+  i
+  i
+ range
+acc := i
+push accumulator
+acc := i
+pop
+mul
+push accumulator
+acc := range
+pop
+lessEq
+0
+acc := 0
+range
+acc := range
+0
+acc := 0
++
+ count
+ 1
+acc := count
+push accumulator
+acc := 1
+pop
+add
++
+ 1
+ result
+acc := 1
+push accumulator
+acc := result
+pop
+add
+    .file   "prime.c"
+    .option nopic
+    .text
+    .align 1
+    .global prime
+    .type prime, @function
+prime:
+
+  addi  sp,sp,-128
+  sd    s0,120(sp)
+  addi  s0,sp,128
+  sd    a0,-80(s0)
+  ld    a0,-80(s0)
+  ld    t0,0(a0)
+  sd    t0,-40(s0)
+  ld    t0,8(a0)
+  sd    t0,-56(s0)
+  ld    t0,16(a0)
+  sd    t0,-64(s0)
+  ld    t0,24(a0)
+  sd    t0,-48(s0)
+  ld    t0,32(a0)
+  sd    t0,-32(s0)
+nop
+nop
+nop
+  #result := 0
+  #label: 0
+  li    t0,0
+  sd    t0,-32(s0)
+  j     .L2
+#code for while condition (range Gre= 2 )  met:
+.L3:
+  #count := 0
+  #label: 2
+  li    t0,0
+  sd    t0,-40(s0)
+  #i := 2
+  #label: 3
+  li    t0,2
+  sd    t0,-56(s0)
+  j     .L4
+#code for while condition ((i * i ) Less= range )  met:
+.L5:
+  #k := range
+  #label: 5
+  ld    t0,-48(s0)
+  sd    t0,-64(s0)
+#IF condition: (count Gre 0 )
+  #label: 6
+  ld    t0,-40(s0)
+  sd    t0,-16(s0)
+  li    t0,0
+  ld    t1,-16(s0)
+  sub   t1,t1,t0
+  sgtz  t0,t1
+#go to .L6 if condition not met
+  beqz  t0,.L6
+#Things to do when IF condition: (count Gre 0 )  is met
+  #label: 7
+nop
+  j     .L7
+#Things to do when IF condition: (count Gre 0 )  is Not met
+.L6:
+  j     .L8
+#code for while condition (k Gre= 1 )  met:
+.L9:
+#IF condition: ((k * i ) = range )
+  #label: 9
+  ld    t0,-64(s0)
+  sd    t0,-16(s0)
+  ld    t0,-56(s0)
+  ld    t1,-16(s0)
+  mul   t0,t0,t1
+  sd    t0,-16(s0)
+  ld    t0,-48(s0)
+  ld    t1,-16(s0)
+  sub   t1,t1,t0
+  seqz  t0,t1
+#go to .L10 if condition not met
+  beqz  t0,.L10
+#Things to do when IF condition: ((k * i ) = range )  is met
+  #count := (count + 1 )
+  #label: 10
+  ld    t0,-40(s0)
+  sd    t0,-16(s0)
+  li    t0,1
+  ld    t1,-16(s0)
+  add   t0,t0,t1
+  sd    t0,-40(s0)
+  j     .L11
+#Things to do when IF condition: ((k * i ) = range )  is Not met
+.L10:
+  #label: 11
+nop
+#code after if ((k * i ) = range )
+.L11:
+  #k := (k - 1 )
+  #label: 12
+  ld    t0,-64(s0)
+  sd    t0,-16(s0)
+  li    t0,1
+  ld    t1,-16(s0)
+  sub   t0,t1,t0
+  sd    t0,-64(s0)
+#while condition: (k Gre= 1 )
+  #label: 8
+.L8:
+  ld    t0,-64(s0)
+  sd    t0,-16(s0)
+  li    t0,1
+  ld    t1,-16(s0)
+  sub   t1,t0,t1
+  sgtz  t0,t1
+  xori  t0,t0,1
+  bnez  t0,.L9
+#code for while condition (k Gre= 1 )  not met:
+#code after if (count Gre 0 )
+.L7:
+  #i := (i + 1 )
+  #label: 13
+  ld    t0,-56(s0)
+  sd    t0,-16(s0)
+  li    t0,1
+  ld    t1,-16(s0)
+  add   t0,t0,t1
+  sd    t0,-56(s0)
+#while condition: ((i * i ) Less= range )
+  #label: 4
+.L4:
+  ld    t0,-56(s0)
+  sd    t0,-16(s0)
+  ld    t0,-56(s0)
+  ld    t1,-16(s0)
+  mul   t0,t0,t1
+  sd    t0,-16(s0)
+  ld    t0,-48(s0)
+  ld    t1,-16(s0)
+  sub   t1,t1,t0
+  sgtz  t0,t1
+  xori  t0,t0,1
+  bnez  t0,.L5
+#code for while condition ((i * i ) Less= range )  not met:
+#IF condition: (count Gre 0 )
+  #label: 14
+  ld    t0,-40(s0)
+  sd    t0,-16(s0)
+  li    t0,0
+  ld    t1,-16(s0)
+  sub   t1,t1,t0
+  sgtz  t0,t1
+#go to .L12 if condition not met
+  beqz  t0,.L12
+#Things to do when IF condition: (count Gre 0 )  is met
+  #label: 15
+nop
+  j     .L13
+#Things to do when IF condition: (count Gre 0 )  is Not met
+.L12:
+  #result := (1 + result )
+  #label: 16
+  li    t0,1
+  sd    t0,-16(s0)
+  ld    t0,-32(s0)
+  ld    t1,-16(s0)
+  add   t0,t0,t1
+  sd    t0,-32(s0)
+#code after if (count Gre 0 )
+.L13:
+  #range := (range - 1 )
+  #label: 17
+  ld    t0,-48(s0)
+  sd    t0,-16(s0)
+  li    t0,1
+  ld    t1,-16(s0)
+  sub   t0,t1,t0
+  sd    t0,-48(s0)
+#while condition: (range Gre= 2 )
+  #label: 1
+.L2:
+  ld    t0,-48(s0)
+  sd    t0,-16(s0)
+  li    t0,2
+  ld    t1,-16(s0)
+  sub   t1,t0,t1
+  sgtz  t0,t1
+  xori  t0,t0,1
+  bnez  t0,.L3
+#code for while condition (range Gre= 2 )  not met:
+nop
+nop
+nop
+  ld    a0,-80(s0)
+  ld    t0,-40(s0)
+  sd    t0,0(a0)
+  ld    t0,-56(s0)
+  sd    t0,8(a0)
+  ld    t0,-64(s0)
+  sd    t0,16(a0)
+  ld    t0,-48(s0)
+  sd    t0,24(a0)
+  ld    t0,-32(s0)
+  sd    t0,32(a0)
+nop
+  ld    s0,120(sp)
+  addi  sp,sp,128
+jr  ra
+    .size   prime, .-prime
+    .ident "GCC: (GNU) 9.0.1 20190123 (Red Hat 9.0.1-0.1)"
+    .section        .note.GNU-stack,"",@progbits
+
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/sheng/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/sheng/.m2/repository/org/apache/logging/log4j/log4j-slf4j-impl/2.12.0/log4j-slf4j-impl-2.12.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+09:32:58.547 [main] INFO guru.nidi.graphviz.engine.AbstractGraphvizEngine - Could not initialize guru.nidi.graphviz.engine.GraphvizCmdLineEngine
+guru.nidi.graphviz.engine.GraphvizException: dot command not found
+09:32:58.561 [main] INFO guru.nidi.graphviz.engine.AbstractGraphvizEngine - Starting V8 runtime...
+OpenJDK 64-Bit Server VM warning: You have loaded library /home/sheng/libj2v8_linux_x86_64.so which might have disabled stack guard. The VM will try to fix the stack guard now.
+It's highly recommended that you fix the library with 'execstack -c <libfile>', or link it with '-z noexecstack'.
+09:32:58.698 [main] INFO guru.nidi.graphviz.engine.AbstractGraphvizEngine - Started V8 runtime. Initializing graphviz...
+09:32:58.835 [main] INFO guru.nidi.graphviz.engine.AbstractGraphvizEngine - Initialized graphviz.
+Done
+
+
+
+*********** Data flow equations:  ***********
+RDIn0 = RDStart
+RDExit0 = RDIn0 \ {(result, l')} | l' is labels} U {(result,0)}
+RDIn1 = RDExit17 U RDExit0
+RDExit1 = RDIn1
+RDIn2 = RDExit1
+RDExit2 = RDIn2 \ {(count, l')} | l' is labels} U {(count,2)}
+RDIn3 = RDExit2
+RDExit3 = RDIn3 \ {(i, l')} | l' is labels} U {(i,3)}
+RDIn4 = RDExit13 U RDExit3
+RDExit4 = RDIn4
+RDIn5 = RDExit4
+RDExit5 = RDIn5 \ {(k, l')} | l' is labels} U {(k,5)}
+RDIn6 = RDExit5
+RDExit6 = RDIn6
+RDIn7 = RDExit6
+RDExit7 = RDIn7
+RDIn8 = RDExit12 U RDExit6
+RDExit8 = RDIn8
+RDIn9 = RDExit8
+RDExit9 = RDIn9
+RDIn10 = RDExit9
+RDExit10 = RDIn10 \ {(count, l')} | l' is labels} U {(count,10)}
+RDIn11 = RDExit9
+RDExit11 = RDIn11
+RDIn12 = RDExit10 U RDExit11
+RDExit12 = RDIn12 \ {(k, l')} | l' is labels} U {(k,12)}
+RDIn13 = RDExit7 U RDExit8
+RDExit13 = RDIn13 \ {(i, l')} | l' is labels} U {(i,13)}
+RDIn14 = RDExit4
+RDExit14 = RDIn14
+RDIn15 = RDExit14
+RDExit15 = RDIn15
+RDIn16 = RDExit14
+RDExit16 = RDIn16 \ {(result, l')} | l' is labels} U {(result,16)}
+RDIn17 = RDExit15 U RDExit16
+RDExit17 = RDIn17 \ {(range, l')} | l' is labels} U {(range,17)}
+******** Reaching Definition result:
+RDIn0: {(result, -1)(count, -1)(range, -1)(i, -1)(k, -1)}
+RDExit0: {(result, 0)(count, -1)(range, -1)(i, -1)(k, -1)}
+RDIn1: {(result, 0)(result, 16)(count, -1)(count, 2)(count, 10)(range, -1)(range, 17)(i, -1)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDExit1: {(result, 0)(result, 16)(count, -1)(count, 2)(count, 10)(range, -1)(range, 17)(i, -1)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDIn2: {(result, 0)(result, 16)(count, -1)(count, 2)(count, 10)(range, -1)(range, 17)(i, -1)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDExit2: {(result, 0)(result, 16)(count, 2)(range, -1)(range, 17)(i, -1)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDIn3: {(result, 0)(result, 16)(count, 2)(range, -1)(range, 17)(i, -1)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDExit3: {(result, 0)(result, 16)(count, 2)(range, -1)(range, 17)(i, 3)(k, -1)(k, 5)(k, 12)}
+RDIn4: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDExit4: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDIn5: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDExit5: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)}
+RDIn6: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)}
+RDExit6: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)}
+RDIn7: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)}
+RDExit7: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)}
+RDIn8: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)(k, 12)}
+RDExit8: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)(k, 12)}
+RDIn9: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)(k, 12)}
+RDExit9: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)(k, 12)}
+RDIn10: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)(k, 12)}
+RDExit10: {(result, 0)(result, 16)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)(k, 12)}
+RDIn11: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)(k, 12)}
+RDExit11: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)(k, 12)}
+RDIn12: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)(k, 12)}
+RDExit12: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 12)}
+RDIn13: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, 5)(k, 12)}
+RDExit13: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 13)(k, 5)(k, 12)}
+RDIn14: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDExit14: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDIn15: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDExit15: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDIn16: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDExit16: {(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDIn17: {(result, 0)(result, 16)(count, 2)(count, 10)(range, -1)(range, 17)(i, 3)(i, 13)(k, -1)(k, 5)(k, 12)}
+RDExit17: {(result, 0)(result, 16)(count, 2)(count, 10)(i, 3)(i, 13)(range, 17)(k, -1)(k, 5)(k, 12)}
+
+
+
+******* start constant Folding *********
+******* End constant Folding *********
+label: 0--{}
+label: 1--{(range,range)}
+label: 2--{}
+label: 3--{}
+label: 4--{(i,i)(i,i)(range,range)}
+label: 5--{(range,range)}
+label: 6--{(count,count)}
+label: 7--{}
+label: 8--{(k,k)}
+label: 9--{(i,i)(range,range)(k,k)}
+label: 10--{(count,count)}
+label: 11--{}
+label: 12--{(k,k)}
+label: 13--{(i,i)}
+label: 14--{(count,count)}
+label: 15--{}
+label: 16--{(result,result)}
+label: 17--{(range,range)}
+
+
+
+******* Equations for liveness analysis *********
+LV0In = {} U (LV0Exit \ {result})
+LV0Exit = LV1In
+LV1In = {range} U (LV1Exit \ {})
+LV1Exit = LVEndIn U LV2In
+LV2In = {} U (LV2Exit \ {count})
+LV2Exit = LV3In
+LV3In = {} U (LV3Exit \ {i})
+LV3Exit = LV4In
+LV4In = {i, range} U (LV4Exit \ {})
+LV4Exit = LV14In U LV5In
+LV5In = {range} U (LV5Exit \ {k})
+LV5Exit = LV6In
+LV6In = {count} U (LV6Exit \ {})
+LV6Exit = LV8In U LV7In
+LV7In = {} U (LV7Exit \ {})
+LV7Exit = LV13In
+LV8In = {k} U (LV8Exit \ {})
+LV8Exit = LV13In U LV9In
+LV9In = {i, range, k} U (LV9Exit \ {})
+LV9Exit = LV11In U LV10In
+LV10In = {count} U (LV10Exit \ {count})
+LV10Exit = LV12In
+LV11In = {} U (LV11Exit \ {})
+LV11Exit = LV12In
+LV12In = {k} U (LV12Exit \ {k})
+LV12Exit = LV8In
+LV13In = {i} U (LV13Exit \ {i})
+LV13Exit = LV4In
+LV14In = {count} U (LV14Exit \ {})
+LV14Exit = LV16In U LV15In
+LV15In = {} U (LV15Exit \ {})
+LV15Exit = LV17In
+LV16In = {result} U (LV16Exit \ {result})
+LV16Exit = LV17In
+LV17In = {range} U (LV17Exit \ {range})
+LV17Exit = LV1In
+
+
+Following code is dead and removed
+
+
+**************** Liveness ******************
+LV0_In:   {range}
+LV0_Exit: {result, range}
+LV1_In:   {result, range}
+LV1_Exit: {result, range}
+LV2_In:   {result, range}
+LV2_Exit: {result, count, range}
+LV3_In:   {result, count, range}
+LV3_Exit: {result, count, i, range}
+LV4_In:   {result, count, i, range}
+LV4_Exit: {result, count, range, i}
+LV5_In:   {result, count, range, i}
+LV5_Exit: {result, count, i, range, k}
+LV6_In:   {result, count, i, range, k}
+LV6_Exit: {result, count, i, range, k}
+LV7_In:   {result, count, i, range}
+LV7_Exit: {result, count, i, range}
+LV8_In:   {result, count, i, range, k}
+LV8_Exit: {result, count, i, range, k}
+LV9_In:   {result, count, i, range, k}
+LV9_Exit: {result, count, i, range, k}
+LV10_In:   {result, count, i, range, k}
+LV10_Exit: {result, count, i, range, k}
+LV11_In:   {result, count, i, range, k}
+LV11_Exit: {result, count, i, range, k}
+LV12_In:   {result, count, i, range, k}
+LV12_Exit: {result, count, i, range, k}
+LV13_In:   {result, count, i, range}
+LV13_Exit: {result, count, i, range}
+LV14_In:   {result, count, range}
+LV14_Exit: {result, range}
+LV15_In:   {result, range}
+LV15_Exit: {result, range}
+LV16_In:   {result, range}
+LV16_Exit: {result, range}
+LV17_In:   {result, range}
+LV17_Exit: {result, range}
+*********Var-Reg Map *********
+result: 5
+count: 1
+i: 3
+range: 4
+k: 2
+s1: [count]
+s2: [k]
+s3: [i]
+s4: [range]
+s5: [result]
+
+
+
+new assembly code generated successfully
+inputs from main.c: inputArr
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+argument for prime:
+    count in array offset 0
+    i in array offset 8
+    k in array offset 16
+    range in array offset 24
+    result in array offset 32
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+stack size: 128
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+callee saved registers   start at stack offset 120 with respect to the top of stack(sp)
+    s3 in stack offset 120
+    s4 in stack offset 112
+    s5 in stack offset 104
+    s0 in stack offset 96
+    s1 in stack offset 88
+    s2 in stack offset 80
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+local variables start at stack offset -72 with respect to the bottom of stack
+    result in stack offset -72
+    count in stack offset -80
+    range in stack offset -88
+    i in stack offset -96
+    k in stack offset -104
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+input variables from main.c start at stack offset -120 with respect to the bottom of stack
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    inputArr in stack offset -120
+range: [2 - 1]: 0
+range: [2 - 2]: 1
+range: [2 - 10]: 4
+range: [2 - 175]: 40
+range: [2 - 631]: 115
+
+Process finished with exit code 0

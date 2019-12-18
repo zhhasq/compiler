@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Collatz {
     public static void main(String[] args)  {
         if (true) {
-            Generator generator = new Generator("src/file/collatz", "collatz", "inputArr", Arrays.asList(new String[]{"output"}));
+            Generator generator = new Generator("src/file/collatz", "collatz", "inputArr", Arrays.asList(new String[]{"output"}), 11);
 
             generator.generateCode();
             generator.showInfo();
@@ -40,6 +40,9 @@ public class Collatz {
             optimizer.solveColor();
             optimizer.showVarRegMap();
             optimizer.showRegVarMap();
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
             optimizer.generateCode();
 
             optimizer.showInfo();

@@ -9,7 +9,7 @@ public class Fibo {
 
     public static void main(String[] args) {
         if (true) {
-            Generator generator = new Generator("src/file/fibo" ,"fibo", "inputArr",Arrays.asList(new String[]{"b"}));
+            Generator generator = new Generator("src/file/fibo" ,"fibo", "inputArr",Arrays.asList(new String[]{"b"}), 11);
 
 
             generator.generateCode();
@@ -41,8 +41,13 @@ public class Fibo {
             optimizer.generateRIG();
             optimizer.solveColor();
             optimizer.showVarRegMap();
-            optimizer.generateCode();
             optimizer.showRegVarMap();
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+
+
+            optimizer.generateCode();
             optimizer.showInfo();
         }
         System.out.println("0 th fibonacci number is " + fibonacci(0));
